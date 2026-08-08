@@ -1,12 +1,43 @@
+New Html 
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Aditya | AI Automation Enthusiast</title>
+  <meta
+    name="description"
+    content="Aditya — Undergraduate and AI Automation Enthusiast exploring automation, software, and practical technology solutions."
+  >
+
+  <title>Aditya — AI Automation Enthusiast</title>
 
   <style>
+
+    /* =========================
+       FOUNDATION
+    ========================= */
+
+    :root {
+      --bg: #080b10;
+      --bg-soft: #0d1219;
+      --surface: rgba(255, 255, 255, 0.055);
+      --surface-strong: rgba(255, 255, 255, 0.085);
+
+      --text: #f4f7f8;
+      --muted: #9aa7b1;
+      --muted-strong: #c2ccd2;
+
+      --teal: #35d6c8;
+      --cyan: #67e8f9;
+      --violet: #8b7cff;
+      --warm: #ffb86b;
+
+      --border: rgba(255, 255, 255, 0.11);
+
+      --max: 1160px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -18,390 +49,862 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f7f6;
-      color: #18252b;
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 80% 10%,
+          rgba(53, 214, 200, 0.10),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 15% 35%,
+          rgba(139, 124, 255, 0.08),
+          transparent 25%
+        ),
+        var(--bg);
+
+      color: var(--text);
       line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 50px 50px;
+
+      mask-image: linear-gradient(
+        to bottom,
+        black,
+        transparent 85%
+      );
+
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 500px;
+      height: 500px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(53, 214, 200, 0.10),
+          transparent 65%
+        );
+
+      top: 15%;
+      right: -220px;
+
+      animation: floatGlow 10s ease-in-out infinite;
+
+      pointer-events: none;
+      z-index: -1;
     }
 
     a {
+      color: inherit;
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     .container {
-      width: 90%;
-      max-width: 1100px;
+      width: min(90%, var(--max));
       margin: auto;
     }
 
-    /* NAVIGATION */
+    /* =========================
+       ANIMATIONS
+    ========================= */
+
+    @keyframes floatGlow {
+
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(35px);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%, 100% {
+        opacity: .35;
+      }
+
+      50% {
+        opacity: .75;
+      }
+    }
+
+    @keyframes reveal {
+
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      animation: reveal .8s ease both;
+    }
+
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     header {
-      background: #101a21;
-      border-bottom: 1px solid #26343d;
-      position: sticky;
+      position: fixed;
       top: 0;
-      z-index: 10;
+      left: 0;
+      width: 100%;
+
+      z-index: 100;
+
+      background: rgba(8, 11, 16, .72);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+
+      border-bottom: 1px solid rgba(255,255,255,.07);
     }
 
     nav {
-      min-height: 70px;
+      min-height: 76px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      color: white;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
     }
 
     .logo span {
-      color: #25aaa3;
+      color: var(--teal);
     }
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 28px;
       list-style: none;
     }
 
     .nav-links a {
-      color: #b9c4c9;
-      font-size: 14px;
+      color: var(--muted);
+      font-size: .88rem;
+
+      transition:
+        color .25s ease;
     }
 
     .nav-links a:hover {
-      color: white;
+      color: var(--text);
     }
 
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
-      background: #101a21;
-      color: white;
-      min-height: 90vh;
+      min-height: 100vh;
+
       display: flex;
       align-items: center;
+
+      padding-top: 100px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 430px;
+      height: 430px;
+
+      left: -250px;
+      top: 30%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(139,124,255,.14),
+          transparent 65%
+        );
+
+      animation: floatGlow 12s ease-in-out infinite;
+
+      pointer-events: none;
     }
 
     .hero-content {
-      max-width: 900px;
-      padding: 100px 0;
+      max-width: 920px;
     }
 
-    .tag {
-      color: #61d1cb;
-      font-size: 14px;
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 8px 13px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 999px;
+
+      background: rgba(255,255,255,.045);
+
+      color: var(--muted-strong);
+
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+
+      margin-bottom: 28px;
+    }
+
+    .eyebrow::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+
+      background: var(--teal);
+
+      box-shadow:
+        0 0 14px var(--teal);
+
+      animation: pulse 2s ease-in-out infinite;
     }
 
     .hero h1 {
-      font-size: clamp(48px, 8vw, 90px);
-      line-height: 1;
-      margin-bottom: 25px;
+      font-size: clamp(4.5rem, 13vw, 10rem);
+
+      line-height: .82;
+
+      letter-spacing: -.075em;
+
+      margin-bottom: 32px;
     }
 
     .hero h1 span {
-      color: #5ed2cc;
+      display: block;
+
+      background:
+        linear-gradient(
+          100deg,
+          var(--text),
+          var(--teal) 48%,
+          var(--cyan)
+        );
+
+      -webkit-background-clip: text;
+      background-clip: text;
+
+      color: transparent;
     }
 
-    .subtitle {
-      font-size: 22px;
-      color: #d8e0e3;
+    .hero-title {
+      font-size: clamp(1.3rem, 3vw, 2rem);
+
+      color: var(--muted-strong);
+
       margin-bottom: 20px;
+
+      max-width: 780px;
     }
 
-    .description {
-      max-width: 700px;
-      color: #aebbc1;
-      font-size: 17px;
+    .hero-title strong {
+      color: var(--text);
     }
 
-    .buttons {
-      margin-top: 30px;
+    .hero-description {
+      max-width: 720px;
+
+      color: var(--muted);
+
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 34px;
     }
 
     .button {
-      display: inline-block;
-      padding: 12px 20px;
-      background: #1da7a0;
-      color: white;
-      border-radius: 6px;
-      font-weight: bold;
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+
+      padding: 0 19px;
+
+      border-radius: 10px;
+
+      font-size: .9rem;
+      font-weight: 700;
+
+      border: 1px solid transparent;
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease;
     }
 
     .button:hover {
-      background: #24bdb5;
+      transform: translateY(-3px);
+    }
+
+    .button.primary {
+      background: var(--teal);
+      color: #06100f;
+
+      box-shadow:
+        0 12px 35px rgba(53,214,200,.15);
+    }
+
+    .button.primary:hover {
+      background: var(--cyan);
     }
 
     .button.secondary {
-      background: transparent;
-      border: 1px solid #52636c;
+      border-color: var(--border);
+      background: rgba(255,255,255,.035);
+      color: var(--text);
     }
 
     .button.secondary:hover {
-      border-color: #1da7a0;
+      border-color: rgba(53,214,200,.45);
+      background: rgba(53,214,200,.06);
     }
 
-    /* GENERAL SECTIONS */
+    .scroll-note {
+      margin-top: 80px;
+
+      color: #6f7c85;
+
+      font-size: .75rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    /* =========================
+       COMMON SECTIONS
+    ========================= */
 
     section {
-      padding: 90px 0;
+      padding: 120px 0;
+      position: relative;
     }
 
-    .label {
-      color: #147d78;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 2px;
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      color: var(--teal);
+
+      font-size: .75rem;
+
+      font-weight: 800;
+
+      letter-spacing: .16em;
+
       text-transform: uppercase;
-      margin-bottom: 10px;
+
+      margin-bottom: 13px;
     }
 
-    h2 {
-      font-size: clamp(34px, 5vw, 52px);
-      line-height: 1.15;
+    .section-head h2 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+
+      line-height: 1;
+
+      letter-spacing: -.055em;
+
       margin-bottom: 20px;
     }
 
-    .text {
-      max-width: 750px;
-      color: #637179;
-      font-size: 17px;
+    .section-head p {
+      color: var(--muted);
+
+      font-size: 1rem;
     }
 
-    /* ABOUT */
+    /* =========================
+       ABOUT
+    ========================= */
 
-    .about {
-      background: white;
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.25fr
+        .75fr;
+
+      gap: 22px;
     }
 
-    .focus {
-      margin-top: 30px;
-      padding: 25px;
-      background: #f4f7f6;
-      border-left: 4px solid #1da7a0;
-      max-width: 750px;
+    .glass {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.075),
+          rgba(255,255,255,.025)
+        );
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      padding: 32px;
+
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      transition:
+        transform .3s ease,
+        border-color .3s ease;
     }
 
-    .focus strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 18px;
+    .glass:hover {
+      transform: translateY(-5px);
+
+      border-color:
+        rgba(53,214,200,.28);
     }
 
-    /* EDUCATION */
+    .glass h3 {
+      font-size: 1.2rem;
+
+      margin-bottom: 12px;
+    }
+
+    .glass p {
+      color: var(--muted);
+    }
+
+    .focus-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .focus-card::after {
+      content: "";
+
+      position: absolute;
+
+      width: 160px;
+      height: 160px;
+
+      right: -70px;
+      bottom: -80px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(53,214,200,.2),
+          transparent 70%
+        );
+    }
+
+    /* =========================
+       EDUCATION
+    ========================= */
 
     .education-card {
-      margin-top: 35px;
-      background: white;
-      padding: 28px;
-      max-width: 750px;
-      border: 1px solid #dce3e2;
-      border-radius: 10px;
+      max-width: 850px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      gap: 30px;
+
+      align-items: flex-start;
+    }
+
+    .education-card .year {
+      color: var(--teal);
+
+      font-size: .8rem;
+
+      font-weight: 800;
+
+      letter-spacing: .1em;
     }
 
     .education-card h3 {
-      margin-bottom: 8px;
-      font-size: 22px;
+      font-size: 1.4rem;
+
+      margin: 8px 0;
     }
 
     .education-card p {
-      color: #68757c;
+      color: var(--muted);
     }
 
-    .date {
-      color: #147d78 !important;
-      font-weight: bold;
-      margin-top: 10px;
-    }
-
-    /* SKILLS */
+    /* =========================
+       SKILLS
+    ========================= */
 
     .skills-grid {
-      margin-top: 35px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
 
-    .skill-card {
-      padding: 28px;
-      background: #f4f7f6;
-      border: 1px solid #dce3e2;
-      border-radius: 10px;
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap: 22px;
     }
 
     .skill-card h3 {
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .skill-list {
       display: flex;
+
       flex-wrap: wrap;
-      gap: 9px;
+
+      gap: 10px;
     }
 
     .skill {
       padding: 8px 13px;
-      border-radius: 20px;
-      background: white;
-      border: 1px solid #dce3e2;
-      color: #34434a;
-      font-size: 14px;
+
+      border-radius: 999px;
+
+      border: 1px solid var(--border);
+
+      background: rgba(255,255,255,.035);
+
+      color: var(--muted-strong);
+
+      font-size: .82rem;
     }
 
     .skill.learning {
-      background: #eaf8f7;
-      border-color: #bfe5e2;
-      color: #147d78;
+      border-color:
+        rgba(53,214,200,.2);
+
+      color: var(--teal);
+
+      background:
+        rgba(53,214,200,.05);
     }
 
-    /* PROJECTS */
-
-    .projects {
-      background: #101a21;
-      color: white;
-    }
-
-    .projects .label {
-      color: #61d1cb;
-    }
-
-    .projects .text {
-      color: #aebbc1;
-    }
+    /* =========================
+       PROJECTS
+    ========================= */
 
     .project-card {
-      margin-top: 35px;
-      max-width: 800px;
-      padding: 30px;
-      background: #17242d;
-      border: 1px solid #2b3a44;
-      border-radius: 10px;
+      position: relative;
+
+      overflow: hidden;
+
+      min-height: 310px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+    }
+
+    .project-number {
+      position: absolute;
+
+      top: 25px;
+      right: 28px;
+
+      color: rgba(255,255,255,.08);
+
+      font-size: 5rem;
+
+      font-weight: 900;
+
+      line-height: 1;
     }
 
     .project-status {
-      display: inline-block;
-      padding: 5px 10px;
-      background: #203b3d;
-      color: #67d4cf;
-      border-radius: 20px;
-      font-size: 12px;
+      display: inline-flex;
+
+      width: fit-content;
+
+      padding: 6px 10px;
+
+      border-radius: 999px;
+
+      background: rgba(53,214,200,.08);
+
+      color: var(--teal);
+
+      font-size: .72rem;
+
+      font-weight: 800;
+
+      letter-spacing: .08em;
+
+      text-transform: uppercase;
+
       margin-bottom: 15px;
     }
 
     .project-card h3 {
+      font-size: 1.8rem;
+
       margin-bottom: 10px;
-      font-size: 24px;
     }
 
     .project-card p {
-      color: #aebbc1;
+      max-width: 700px;
+
+      color: var(--muted);
     }
 
-    /* JOURNEY */
-
-    .journey {
-      background: white;
-    }
+    /* =========================
+       JOURNEY
+    ========================= */
 
     .timeline {
-      margin-top: 35px;
-      max-width: 750px;
-      border-left: 2px solid #dce3e2;
-      padding-left: 25px;
+      max-width: 850px;
+
+      position: relative;
+
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: "";
+
+      position: absolute;
+
+      left: 4px;
+      top: 0;
+      bottom: 0;
+
+      width: 1px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          var(--teal),
+          rgba(53,214,200,.08)
+        );
     }
 
     .timeline-item {
-      margin-bottom: 35px;
+      position: relative;
+
+      margin-bottom: 50px;
     }
 
-    .year {
-      color: #147d78;
-      font-size: 13px;
-      font-weight: bold;
-      letter-spacing: 1px;
+    .timeline-item::before {
+      content: "";
+
+      position: absolute;
+
+      width: 9px;
+      height: 9px;
+
+      border-radius: 50%;
+
+      background: var(--teal);
+
+      left: -30px;
+      top: 7px;
+
+      box-shadow:
+        0 0 18px rgba(53,214,200,.7);
+    }
+
+    .timeline-year {
+      color: var(--teal);
+
+      font-size: .75rem;
+
+      font-weight: 800;
+
+      letter-spacing: .12em;
+
+      text-transform: uppercase;
     }
 
     .timeline-item h3 {
-      margin: 5px 0;
-      font-size: 21px;
+      margin: 7px 0;
+
+      font-size: 1.35rem;
     }
 
     .timeline-item p {
-      color: #68757c;
+      color: var(--muted);
+
+      max-width: 700px;
     }
 
-    /* DIRECTION */
-
-    .direction {
-      background: #f4f7f6;
-    }
+    /* =========================
+       DIRECTION
+    ========================= */
 
     .direction-grid {
-      margin-top: 35px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
       gap: 18px;
     }
 
     .direction-card {
-      background: white;
-      padding: 28px;
-      border: 1px solid #dce3e2;
-      border-radius: 10px;
+      min-height: 230px;
+    }
+
+    .direction-icon {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 12px;
+
+      background: rgba(53,214,200,.08);
+
+      color: var(--teal);
+
+      margin-bottom: 20px;
+
+      font-weight: 900;
     }
 
     .direction-card h3 {
       margin-bottom: 10px;
     }
 
-    .direction-card p {
-      color: #68757c;
-      font-size: 15px;
+    /* =========================
+       CONTACT
+    ========================= */
+
+    .contact-box {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 55px;
+
+      border-radius: 24px;
+
+      border: 1px solid var(--border);
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(53,214,200,.14),
+          transparent 35%
+        ),
+        radial-gradient(
+          circle at 10% 90%,
+          rgba(139,124,255,.12),
+          transparent 35%
+        ),
+        rgba(255,255,255,.035);
     }
 
-    /* CONTACT */
+    .contact-box h2 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
 
-    .contact {
-      background: #101a21;
-      color: white;
+      line-height: .95;
+
+      letter-spacing: -.055em;
+
+      margin-bottom: 20px;
+
+      max-width: 800px;
     }
 
-    .contact .label {
-      color: #61d1cb;
+    .contact-box p {
+      color: var(--muted);
+
+      max-width: 650px;
     }
 
-    .contact .text {
-      color: #aebbc1;
-    }
-
-    /* FOOTER */
+    /* =========================
+       FOOTER
+    ========================= */
 
     footer {
-      background: #0b1218;
-      color: #819099;
+      padding: 35px 0;
+
+      border-top: 1px solid rgba(255,255,255,.07);
+
+      color: #697680;
+
+      font-size: .78rem;
+
       text-align: center;
-      padding: 30px;
-      font-size: 14px;
     }
 
-    /* MOBILE */
+    /* =========================
+       MOBILE
+    ========================= */
 
-    @media (max-width: 800px) {
+    @media (max-width: 850px) {
 
       .nav-links {
         display: none;
       }
 
+      .about-grid,
       .skills-grid {
         grid-template-columns: 1fr;
       }
@@ -410,49 +913,64 @@
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-content {
-        padding: 80px 0;
+      .education-card {
+        flex-direction: column;
       }
 
       section {
-        padding: 70px 0;
+        padding: 90px 0;
       }
+
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
+
+      .hero {
+        min-height: 90vh;
+      }
 
       .hero h1 {
-        font-size: 50px;
+        font-size: clamp(4rem, 22vw, 6rem);
       }
 
-      .subtitle {
-        font-size: 19px;
+      .hero-title {
+        font-size: 1.2rem;
       }
 
-      .buttons {
+      .hero-description {
+        font-size: .95rem;
+      }
+
+      .hero-actions {
         flex-direction: column;
       }
 
       .button {
-        text-align: center;
+        width: 100%;
       }
 
-      h2 {
-        font-size: 36px;
+      .glass {
+        padding: 24px;
       }
+
+      .contact-box {
+        padding: 32px 24px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <!-- NAVIGATION -->
+  <!-- =========================
+       NAVIGATION
+  ========================= -->
 
   <header>
+
     <div class="container">
 
       <nav>
@@ -465,10 +983,6 @@
 
           <li>
             <a href="#about">About</a>
-          </li>
-
-          <li>
-            <a href="#education">Education</a>
           </li>
 
           <li>
@@ -492,42 +1006,47 @@
       </nav>
 
     </div>
+
   </header>
 
 
-  <!-- HERO -->
-
   <main>
+
+    <!-- =========================
+         HERO
+    ========================= -->
 
     <section class="hero">
 
       <div class="container">
 
-        <div class="hero-content">
+        <div class="hero-content reveal">
 
-          <div class="tag">
-            AI · AUTOMATION · SOFTWARE
+          <div class="eyebrow">
+            Currently learning & building
           </div>
 
           <h1>
-            Building practical
-            <span>solutions.</span>
+            ADITYA
+            <span>BUILDING.</span>
           </h1>
 
-          <p class="subtitle">
-            Undergraduate in Computer Applications
+          <p class="hero-title">
+            <strong>Undergraduate</strong>
             · AI Automation Enthusiast
           </p>
 
-          <p class="description">
-            I'm exploring artificial intelligence, automation,
-            and software development while learning through
-            hands-on projects and practical problem solving.
+          <p class="hero-description">
+            Exploring artificial intelligence, automation,
+            software, and practical technology solutions —
+            one project at a time.
           </p>
 
-          <div class="buttons">
+          <div class="hero-actions">
 
-            <a href="#projects" class="button">
+            <a
+              href="#projects"
+              class="button primary">
               Explore My Work
             </a>
 
@@ -540,54 +1059,18 @@
             </a>
 
             <a
-              href="#contact"
+              href="https://www.linkedin.com/in/aditya-10917341"
+              target="_blank"
+              rel="noopener noreferrer"
               class="button secondary">
-              Let's Connect
+              LinkedIn
             </a>
 
           </div>
 
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about" id="about">
-
-      <div class="container">
-
-        <div class="label">
-          About Me
-        </div>
-
-        <h2>
-          Learning with a builder's mindset.
-        </h2>
-
-        <p class="text">
-          I'm an undergraduate student in Computer
-          Applications with a growing interest in
-          artificial intelligence, automation,
-          software development, and technology-driven
-          problem solving.
-        </p>
-
-        <div class="focus">
-
-          <strong>
-            Current Focus
-          </strong>
-
-          <p class="text">
-            Developing practical skills in AI automation,
-            workflow design, Python, APIs, and intelligent
-            systems while building a strong technical
-            foundation.
-          </p>
+          <div class="scroll-note">
+            Scroll to explore ↓
+          </div>
 
         </div>
 
@@ -596,142 +1079,64 @@
     </section>
 
 
-    <!-- EDUCATION -->
+    <!-- =========================
+         ABOUT
+    ========================= -->
 
-    <section id="education">
+    <section id="about">
 
       <div class="container">
 
-        <div class="label">
-          Education
-        </div>
+        <div class="section-head">
 
-        <h2>
-          Building the foundation.
-        </h2>
+          <div class="section-label">
+            01 · About
+          </div>
 
-        <p class="text">
-          My academic journey is helping me develop
-          fundamentals in computer applications,
-          technology, and problem solving.
-        </p>
-
-        <div class="education-card">
-
-          <h3>
-            Bachelor of Computer Applications (BCA)
-          </h3>
+          <h2>
+            Learning with a
+            builder's mindset.
+          </h2>
 
           <p>
-            Galgotias University
-          </p>
-
-          <p class="date">
-            Undergraduate · 2026
+            I'm an undergraduate student developing my
+            technical foundation while exploring AI,
+            automation, software, and business-focused
+            technology.
           </p>
 
         </div>
 
-      </div>
 
-    </section>
+        <div class="about-grid">
 
-
-    <!-- SKILLS -->
-
-    <section class="skills" id="skills">
-
-      <div class="container">
-
-        <div class="label">
-          Skills
-        </div>
-
-        <h2>
-          Tools I'm building with.
-        </h2>
-
-        <p class="text">
-          A growing technical toolkit focused on automation,
-          software, and practical problem solving.
-        </p>
-
-        <div class="skills-grid">
-
-          <div class="skill-card">
+          <div class="glass">
 
             <h3>
-              Working With
+              What I'm focused on
             </h3>
 
-            <div class="skill-list">
-
-              <span class="skill">
-                Python
-              </span>
-
-              <span class="skill">
-                Git
-              </span>
-
-              <span class="skill">
-                GitHub
-              </span>
-
-              <span class="skill">
-                n8n
-              </span>
-
-              <span class="skill">
-                Microsoft Excel
-              </span>
-
-              <span class="skill">
-                Microsoft Word
-              </span>
-
-            </div>
+            <p>
+              I'm learning how AI systems, automation
+              workflows, APIs, and software can work
+              together to solve repetitive and practical
+              problems.
+            </p>
 
           </div>
 
 
-          <div class="skill-card">
+          <div class="glass focus-card">
 
             <h3>
-              Currently Learning
+              How I learn
             </h3>
 
-            <div class="skill-list">
-
-              <span class="skill learning">
-                AI Automation
-              </span>
-
-              <span class="skill learning">
-                APIs
-              </span>
-
-              <span class="skill learning">
-                AI Agents
-              </span>
-
-              <span class="skill learning">
-                HTML
-              </span>
-
-              <span class="skill learning">
-                CSS
-              </span>
-
-              <span class="skill learning">
-                JavaScript
-              </span>
-
-              <span class="skill learning">
-                SQL
-              </span>
-
-            </div>
+            <p>
+              By building projects, experimenting with
+              tools, solving problems, and continuously
+              improving what I create.
+            </p>
 
           </div>
 
@@ -742,121 +1147,53 @@
     </section>
 
 
-    <!-- PROJECTS -->
+    <!-- =========================
+         EDUCATION
+    ========================= -->
 
-    <section class="projects" id="projects">
-
-      <div class="container">
-
-        <div class="label">
-          Projects
-        </div>
-
-        <h2>
-          Building, experimenting, improving.
-        </h2>
-
-        <p class="text">
-          I'm developing practical projects to strengthen
-          my skills in AI automation, workflows, software
-          development, and business-focused technology.
-        </p>
-
-        <div class="project-card">
-
-          <span class="project-status">
-            Currently Building
-          </span>
-
-          <h3>
-            AI Automation Project
-          </h3>
-
-          <p>
-            Exploring how AI, automation workflows, and APIs
-            can be combined to reduce repetitive work and
-            solve practical business problems.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- JOURNEY -->
-
-    <section class="journey" id="journey">
+    <section>
 
       <div class="container">
 
-        <div class="label">
-          Journey
+        <div class="section-head">
+
+          <div class="section-label">
+            02 · Education
+          </div>
+
+          <h2>
+            Building the foundation.
+          </h2>
+
         </div>
 
-        <h2>
-          Learning → Building → Growing.
-        </h2>
 
-        <p class="text">
-          This portfolio will evolve as I learn new
-          technologies, complete projects, and gain
-          practical experience.
-        </p>
+        <div class="glass education-card">
 
-        <div class="timeline">
+          <div>
 
-          <div class="timeline-item">
+            <div class="year">
+              UNDERGRADUATE
+            </div>
+
+            <h3>
+              Bachelor of Computer Applications
+            </h3>
+
+            <p>
+              Galgotias University
+            </p>
+
+          </div>
+
+          <div>
 
             <div class="year">
               2026
             </div>
 
-            <h3>
-              Started undergraduate journey
-            </h3>
-
             <p>
-              Began my Bachelor of Computer Applications
-              and started developing a stronger technical
-              foundation.
-            </p>
-
-          </div>
-
-
-          <div class="timeline-item">
-
-            <div class="year">
-              2026
-            </div>
-
-            <h3>
-              Started exploring AI automation
-            </h3>
-
-            <p>
-              Began learning AI automation, n8n, Python,
-              APIs, and intelligent workflows.
-            </p>
-
-          </div>
-
-
-          <div class="timeline-item">
-
-            <div class="year">
-              Ongoing
-            </div>
-
-            <h3>
-              Building practical projects
-            </h3>
-
-            <p>
-              Learning through projects, experimentation,
-              documentation, and continuous improvement.
+              Currently pursuing
             </p>
 
           </div>
@@ -868,134 +1205,24 @@
     </section>
 
 
-    <!-- DIRECTION -->
+    <!-- =========================
+         SKILLS
+    ========================= -->
 
-    <section class="direction">
+    <section id="skills">
 
       <div class="container">
 
-        <div class="label">
-          Direction
-        </div>
+        <div class="section-head">
 
-        <h2>
-          Where I'm heading.
-        </h2>
-
-        <p class="text">
-          My long-term goal is to combine technology,
-          automation, and business thinking to create
-          useful solutions for real-world problems.
-        </p>
-
-        <div class="direction-grid">
-
-          <div class="direction-card">
-
-            <h3>
-              AI & Automation
-            </h3>
-
-            <p>
-              Developing deeper knowledge of AI systems,
-              automation workflows, APIs, and intelligent
-              agents.
-            </p>
-
+          <div class="section-label">
+            03 · Skills
           </div>
 
+          <h2>
+            Tools I'm building with.
+          </h2>
 
-          <div class="direction-card">
-
-            <h3>
-              Software
-            </h3>
-
-            <p>
-              Strengthening my ability to design and build
-              practical software products and tools.
-            </p>
-
-          </div>
-
-
-          <div class="direction-card">
-
-            <h3>
-              Business Solutions
-            </h3>
-
-            <p>
-              Exploring how technology can solve business
-              problems, improve efficiency, and create
-              measurable value.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONTACT -->
-
-    <section class="contact" id="contact">
-
-      <div class="container">
-
-        <div class="label">
-          Contact
-        </div>
-
-        <h2>
-          Let's build something useful.
-        </h2>
-
-        <p class="text">
-          I'm interested in learning, building, and
-          connecting with people working on technology,
-          automation, and meaningful ideas.
-        </p>
-
-        <div class="buttons">
-
-          <a
-            href="mailto:adityaofficial2897@gmail.com"
-            class="button">
-            Email Me
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/aditya-10917341"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button secondary">
-            LinkedIn
-          </a>
-
-          <a
-            href="https://github.com/Adityaofficial518"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button secondary">
-            GitHub
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <footer>
-    © 2026 Aditya · Learning, building, and growing.
-  </footer>
-
-</body>
-</html>
+          <p>
+            A growing toolkit. Some technologies are
+            already part of my workfl
