@@ -1,1 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050816">
+<title>Aditya — AI Automation & Technology</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
+:root{
+  --bg:#050816;
+  --bg2:#091126;
+  --text:#f7f8ff;
+  --muted:#a9b3ca;
+  --cyan:#28e7ff;
+  --blue:#5b7cff;
+  --violet:#a66cff;
+  --pink:#ff4fd8;
+  --lime:#b8ff3d;
+  --gold:#ffd166;
+  --line:rgba(255,255,255,.11);
+  --glass:rgba(11,18,40,.58);
+  --shadow:0 30px 90px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"DM Sans",sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 12% 15%,rgba(91,124,255,.16),transparent 30%),
+    radial-gradient(circle at 82% 22%,rgba(255,79,216,.12),transparent 28%),
+    radial-gradient(circle at 58% 78%,rgba(40,231,255,.10),transparent 30%),
+    var(--bg);
+  overflow-x:hidden;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+#space{position:fixed;inset:0;z-index:-2;overflow:hidden}
+.orb{
+  position:absolute;border-radius:50%;filter:blur(2px);opacity:.5;mix-blend-mode:screen;
+  animation:float 14s ease-in-out infinite;
+}
+.o1{width:380px;height:380px;left:-120px;top:18%;background:radial-gradient(circle,rgba(40,231,255,.32),transparent 68%)}
+.o2{width:420px;height:420px;right:-150px;top:8%;background:radial-gradient(circle,rgba(166,108,255,.28),transparent 68%);animation-delay:-5s}
+.o3{width:360px;height:360px;right:18%;bottom:-160px;background:radial-gradient(circle,rgba(255,79,216,.18),transparent 68%);animation-delay:-9s}
+@keyframes float{50%{transform:translate3d(0,-35px,0) scale(1.08)}}
+#particles{position:absolute;inset:0;width:100%;height:100%}
+
+header{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;justify-content:center;padding:18px 20px;
+  pointer-events:none;
+}
+.nav{
+  width:min(1180px,100%);display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px 12px 18px;border:1px solid var(--line);border-radius:22px;
+  background:rgba(5,8,22,.62);backdrop-filter:blur(18px);box-shadow:0 15px 50px rgba(0,0,0,.25);
+  pointer-events:auto;
+}
+.logo{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.04em;font-size:1.1rem}
+.logo span{color:var(--cyan)}
+.links{display:flex;gap:7px}
+.links a{font-size:.84rem;color:#c9d0e3;padding:9px 12px;border-radius:12px;transition:.25s}
+.links a:hover,.links a.active{color:white;background:rgba(255,255,255,.08)}
+.cta{
+  padding:10px 15px;border-radius:13px;border:1px solid rgba(184,255,61,.5);
+  background:var(--lime);color:#061006;font-weight:800;box-shadow:0 0 30px rgba(184,255,61,.16);
+}
+main{position:relative;z-index:1}
+section{width:min(1180px,calc(100% - 40px));margin:auto;padding:120px 0;scroll-margin-top:100px}
+.hero{min-height:100vh;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:50px;padding-top:150px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--cyan);font-size:.75rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:22px}
+.eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 18px var(--lime)}
+h1{
+  font-family:"Space Grotesk";font-size:clamp(4.8rem,13vw,10rem);line-height:.78;
+  letter-spacing:-.075em;margin-bottom:30px;
+  background:linear-gradient(110deg,#fff 10%,#bffaff 34%,#7d8cff 60%,#ff8de9 85%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 0 60px rgba(91,124,255,.16);
+}
+.hero-title{font-family:"Space Grotesk";font-size:clamp(1.45rem,3vw,2.35rem);line-height:1.1;max-width:760px}
+.hero-title em{font-style:normal;color:var(--lime)}
+.lead{color:var(--muted);font-size:1.05rem;line-height:1.75;max-width:680px;margin:22px 0 28px}
+.pills{display:flex;flex-wrap:wrap;gap:9px}
+.pill{border:1px solid var(--line);background:rgba(255,255,255,.045);padding:8px 12px;border-radius:999px;color:#dbe2f3;font-size:.82rem}
+.hero-actions{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.primary,.secondary{padding:13px 18px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:9px}
+.primary{background:linear-gradient(100deg,var(--cyan),var(--blue));color:#03101a;box-shadow:0 15px 45px rgba(40,231,255,.18)}
+.secondary{border:1px solid var(--line);background:rgba(255,255,255,.04)}
+
+.scene{height:500px;position:relative;perspective:1100px}
+.core{
+  position:absolute;left:50%;top:50%;width:230px;height:230px;transform:translate(-50%,-50%) rotateX(18deg) rotateY(-22deg);
+  transform-style:preserve-3d;animation:core 9s ease-in-out infinite;
+}
+@keyframes core{50%{transform:translate(-50%,-55%) rotateX(-8deg) rotateY(28deg)}}
+.core .cube{position:absolute;inset:25px;transform-style:preserve-3d}
+.face{position:absolute;inset:0;border:1px solid rgba(255,255,255,.25);background:linear-gradient(135deg,rgba(40,231,255,.14),rgba(166,108,255,.12));backdrop-filter:blur(5px);box-shadow:inset 0 0 40px rgba(40,231,255,.08),0 0 50px rgba(91,124,255,.14)}
+.f1{transform:translateZ(75px)}.f2{transform:rotateY(90deg) translateZ(75px)}.f3{transform:rotateY(180deg) translateZ(75px)}.f4{transform:rotateY(-90deg) translateZ(75px)}.f5{transform:rotateX(90deg) translateZ(75px)}.f6{transform:rotateX(-90deg) translateZ(75px)}
+.ring{position:absolute;left:50%;top:50%;border:1px solid rgba(40,231,255,.5);border-radius:50%;transform-style:preserve-3d}
+.r1{width:390px;height:150px;transform:translate(-50%,-50%) rotateX(68deg);animation:spin 12s linear infinite}
+.r2{width:340px;height:130px;transform:translate(-50%,-50%) rotateY(65deg) rotateX(18deg);border-color:rgba(255,79,216,.45);animation:spin2 15s linear infinite}
+.r3{width:470px;height:170px;transform:translate(-50%,-50%) rotateX(18deg);border-color:rgba(184,255,61,.25);animation:spin 18s linear infinite reverse}
+@keyframes spin{to{transform:translate(-50%,-50%) rotateX(68deg) rotateZ(360deg)}}
+@keyframes spin2{to{transform:translate(-50%,-50%) rotateY(65deg) rotateX(18deg) rotateZ(-360deg)}}
+.status{position:absolute;left:10px;bottom:30px;padding:13px 15px;border:1px solid var(--line);background:var(--glass);border-radius:16px;backdrop-filter:blur(14px);font-size:.82rem;color:#dbe2f3}
+.status b{color:var(--lime)}
+
+.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}
+.kicker{color:var(--violet);font-weight:800;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+h2{font-family:"Space Grotesk";font-size:clamp(2.4rem,6vw,5rem);letter-spacing:-.055em;line-height:.95}
+.section-head p{max-width:470px;color:var(--muted);line-height:1.7}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  position:relative;padding:25px;border:1px solid var(--line);border-radius:24px;
+  background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.025));
+  min-height:230px;overflow:hidden;transition:transform .35s,border-color .35s,box-shadow .35s;
+}
+.card:before{content:"";position:absolute;width:150px;height:150px;right:-70px;top:-70px;border-radius:50%;background:var(--glow,rgba(40,231,255,.15));filter:blur(30px)}
+.card:hover{transform:translateY(-9px) rotateX(2deg);border-color:rgba(40,231,255,.38);box-shadow:var(--shadow)}
+.num{font-family:"Space Grotesk";font-size:.75rem;color:var(--cyan);letter-spacing:.14em}
+.card h3{font-family:"Space Grotesk";font-size:1.35rem;margin:35px 0 10px}
+.card p,.card li{color:var(--muted);line-height:1.65;font-size:.92rem}
+.card ul{padding-left:18px;display:grid;gap:8px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:18px}.tag{font-size:.72rem;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,.06);color:#d9e0ef}
+
+.work{grid-template-columns:1fr 1fr}
+.project{min-height:290px}
+.project .accent{height:5px;width:70px;border-radius:99px;background:linear-gradient(90deg,var(--cyan),var(--violet));margin-bottom:28px}
+.project:nth-child(2) .accent{background:linear-gradient(90deg,var(--pink),var(--gold))}
+.project:nth-child(3) .accent{background:linear-gradient(90deg,var(--lime),var(--cyan))}
+.project:nth-child(4) .accent{background:linear-gradient(90deg,var(--violet),var(--pink))}
+
+.timeline{position:relative;margin-left:8px;padding-left:35px}
+.timeline:before{content:"";position:absolute;left:5px;top:0;bottom:0;width:1px;background:linear-gradient(var(--cyan),var(--violet),transparent)}
+.event{position:relative;padding:0 0 42px}
+.event:before{content:"";position:absolute;left:-35px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--lime);box-shadow:0 0 20px rgba(184,255,61,.7)}
+.event small{color:var(--cyan);font-weight:800;letter-spacing:.12em}.event h3{font-family:"Space Grotesk";font-size:1.35rem;margin:8px 0}.event p{color:var(--muted);line-height:1.6}
+
+.vision{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.vision .card{min-height:200px}
+.contact{border:1px solid var(--line);border-radius:30px;padding:55px;background:radial-gradient(circle at 80% 20%,rgba(166,108,255,.18),transparent 35%),linear-gradient(135deg,rgba(40,231,255,.08),rgba(255,255,255,.03))}
+.contact h2{max-width:800px}.contact p{color:var(--muted);max-width:620px;line-height:1.7;margin:18px 0 25px}
+footer{width:min(1180px,calc(100% - 40px));margin:auto;padding:30px 0 45px;border-top:1px solid var(--line);display:flex;justify-content:space-between;color:#7e899f;font-size:.8rem}
+
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}.reveal.show{opacity:1;transform:none}
+.cursor{position:fixed;width:22px;height:22px;border:1px solid rgba(40,231,255,.65);border-radius:50%;pointer-events:none;z-index:50;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:width .2s,height .2s}
+.progress{position:fixed;right:10px;top:50%;width:3px;height:110px;background:rgba(255,255,255,.08);z-index:30;border-radius:9px}.progress span{display:block;width:100%;height:20%;background:linear-gradient(var(--cyan),var(--pink));border-radius:9px}
+
+@media(max-width:850px){
+  .links{display:none}.hero{grid-template-columns:1fr;padding-top:130px}.scene{height:350px;order:-1}
+  .grid,.work,.vision{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:16px}
+  h1{font-size:clamp(4.4rem,22vw,7rem)}section{padding:90px 0}.nav{padding:11px 12px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+  .cursor{display:none}
+}
+</style>
+</head>
+<body>
+<div id="space"><canvas id="particles"></canvas><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div></div>
+<div class="cursor" id="cursor"></div>
+<div class="progress"><span id="progress"></span></div>
+
+<header>
+<nav class="nav">
+  <a class="logo" href="#home"><span>●</span> Aditya.</a>
+  <div class="links">
+    <a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#journey">Journey</a><a href="#vision">Vision</a>
+  </div>
+  <a class="cta" href="#contact">Let's Connect</a>
+</nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="reveal">
+    <div class="eyebrow"><i></i> Learning • Building • Exploring</div>
+    <h1 aria-label="Aditya"><span>A</span><span>D</span><span>I</span><span>T</span><span>Y</span><span>A</span></h1>
+    <div class="hero-title">Computer Applications <em>•</em> AI Automation <em>•</em> Future Builder</div>
+    <p class="lead">I'm building a technical foundation through software, artificial intelligence and automation — turning curiosity into practical experiments and useful systems.</p>
+    <div class="pills"><span class="pill">AI & Automation</span><span class="pill">Software</span><span class="pill">Problem Solving</span><span class="pill">Business Thinking</span></div>
+    <div class="hero-actions"><a class="primary" href="#work">Explore my work ↗</a><a class="secondary" href="#about">Discover more</a></div>
+  </div>
+  <div class="scene reveal">
+    <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+    <div class="core"><div class="cube"><div class="face f1"></div><div class="face f2"></div><div class="face f3"></div><div class="face f4"></div><div class="face f5"></div><div class="face f6"></div></div></div>
+    <div class="status">SYSTEM STATUS <b>● ONLINE</b><br><small>Exploring the next idea...</small></div>
+  </div>
+</section>
+
+<section id="about" class="reveal">
+  <div class="section-head"><div><div class="kicker">01 — About</div><h2>Learning by building.</h2></div><p>I'm early in the journey, focused on developing strong fundamentals while experimenting with technology that can solve real problems.</p></div>
+  <div class="grid">
+    <article class="card" style="--glow:rgba(40,231,255,.18)"><div class="num">01 / FOCUS</div><h3>Technology with purpose.</h3><ul><li>Artificial intelligence</li><li>Automation workflows</li><li>APIs and integrations</li><li>Software development</li></ul></article>
+    <article class="card" style="--glow:rgba(166,108,255,.18)"><div class="num">02 / METHOD</div><h3>Understand → Build → Improve.</h3><p>I prefer practical experimentation: understand the foundation, build something small, test it, find what is missing, and improve it.</p></article>
+    <article class="card" style="--glow:rgba(255,79,216,.16)"><div class="num">03 / MINDSET</div><h3>Curiosity over shortcuts.</h3><p>The goal isn't to appear finished. It's to keep learning, create better work and develop the ability to turn ideas into systems.</p></article>
+  </div>
+</section>
+
+<section id="skills" class="reveal">
+  <div class="section-head"><div><div class="kicker">02 — Skills</div><h2>The stack is growing.</h2></div><p>A practical collection of technologies and thinking patterns I'm exploring.</p></div>
+  <div class="grid">
+    <article class="card"><div class="num">01</div><h3>AI & Automation</h3><p>Exploring AI concepts, intelligent workflows, agents and automation patterns.</p><div class="tags"><span class="tag">AI</span><span class="tag">Automation</span><span class="tag">Agents</span></div></article>
+    <article class="card"><div class="num">02</div><h3>Software</h3><p>Building foundations in programming, web technologies, APIs and system thinking.</p><div class="tags"><span class="tag">Python</span><span class="tag">HTML/CSS</span><span class="tag">APIs</span></div></article>
+    <article class="card"><div class="num">03</div><h3>Problem Solving</h3><p>Breaking large ideas into smaller experiments and improving them through iteration.</p><div class="tags"><span class="tag">Logic</span><span class="tag">Systems</span><span class="tag">Experimentation</span></div></article>
+  </div>
+</section>
+
+<section id="work" class="reveal">
+  <div class="section-head"><div><div class="kicker">03 — Work</div><h2>From learning to building.</h2></div><p>Projects are where concepts become experiments, and experiments become practical experience.</p></div>
+  <div class="grid work">
+    <article class="card project"><div class="accent"></div><div class="num">01 / EXPLORATION</div><h3>AI Automation Exploration</h3><p>Exploring how AI, automation workflows, APIs and intelligent systems can work together to reduce repetitive tasks.</p></article>
+    <article class="card project"><div class="accent"></div><div class="num">02 / WEB</div><h3>Interactive Portfolio</h3><p>A continuously evolving portfolio designed as a playground for frontend design, animation and interaction.</p></article>
+    <article class="card project"><div class="accent"></div><div class="num">03 / SYSTEMS</div><h3>Practical Experiments</h3><p>Small experiments designed to understand how different technologies connect and where they create useful outcomes.</p></article>
+    <article class="card project"><div class="accent"></div><div class="num">04 / NEXT</div><h3>More ideas in progress.</h3><p>The portfolio will grow as new projects move from notes and prototypes into finished work.</p></article>
+  </div>
+</section>
+
+<section id="journey" class="reveal">
+  <div class="section-head"><div><div class="kicker">04 — Journey</div><h2>Still at the beginning.</h2></div><p>Being early means there is a lot left to learn, test and discover.</p></div>
+  <div class="timeline">
+    <div class="event"><small>2025 — FOUNDATION</small><h3>Began undergraduate studies</h3><p>Started building a stronger foundation in computer applications and technology.</p></div>
+    <div class="event"><small>2025 — EXPLORATION</small><h3>Started exploring AI automation</h3><p>Began exploring Python, automation, APIs, workflows and AI-based systems.</p></div>
+    <div class="event"><small>NOW — BUILD</small><h3>Turning knowledge into projects</h3><p>Moving from tutorials and theory toward practical experiments and useful systems.</p></div>
+    <div class="event"><small>NEXT — EXPAND</small><h3>Build deeper technical ability</h3><p>Keep improving fundamentals while learning how technology can create meaningful value.</p></div>
+  </div>
+</section>
+
+<section id="vision" class="reveal">
+  <div class="section-head"><div><div class="kicker">05 — Vision</div><h2>Thinking beyond the next project.</h2></div><p>The long-term direction is to combine technical ability with business understanding and create technology that provides real value.</p></div>
+  <div class="vision">
+    <article class="card"><div class="num">01 / INTELLIGENCE</div><h3>Intelligent Systems</h3><p>Develop deeper knowledge of AI, agents, automation and intelligent workflows.</p></article>
+    <article class="card"><div class="num">02 / PRODUCTS</div><h3>Products & Software</h3><p>Learn how to turn ideas into useful digital products and practical tools.</p></article>
+    <article class="card"><div class="num">03 / VALUE</div><h3>Real-World Value</h3><p>Understand how technology can save time, solve problems and create measurable value.</p></article>
+  </div>
+</section>
+
+<section id="contact" class="reveal">
+  <div class="contact">
+    <div class="kicker">06 — Contact</div><h2>Let's build something worth remembering.</h2>
+    <p>I'm always interested in learning, experimenting and connecting with people who enjoy building things.</p>
+    <a class="primary" href="mailto:adityaofficial518@gmail.com">Start a conversation ↗</a>
+  </div>
+</section>
+</main>
+
+<footer><span>© 2026 Aditya.</span><span>Learning • Building • Exploring</span></footer>
+
+<script>
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let W,H,dpr,particles=[];
+function resize(){
+  dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;
+  canvas.width=W*dpr;canvas.height=H*dpr;canvas.style.width=W+'px';canvas.style.height=H+'px';ctx.setTransform(dpr,0,0,dpr,0,0);
+  const count=Math.min(150,Math.floor(W*H/9000));particles=Array.from({length:count},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.4,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.18,a:Math.random()*.7+.15,c:['#28e7ff','#5b7cff','#a66cff','#ff4fd8','#b8ff3d'][Math.floor(Math.random()*5)]}));
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  for(const p of particles){
+    p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c;ctx.globalAlpha=p.a;ctx.fill();
+  }
+  ctx.globalAlpha=1;requestAnimationFrame(draw);
+}
+resize();addEventListener('resize',resize);draw();
+
+const cursor=document.getElementById('cursor');
+addEventListener('pointermove',e=>{cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(el=>el.addEventListener('mouseenter',()=>{cursor.style.width='34px';cursor.style.height='34px'}));
+document.querySelectorAll('a,button').forEach(el=>el.addEventListener('mouseleave',()=>{cursor.style.width='22px';cursor.style.height='22px'}));
+
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(x=>obs.observe(x));
+
+const sections=[...document.querySelectorAll('section[id]')],nav=[...document.querySelectorAll('.links a')];
+const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){nav.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}}),{rootMargin:'-40% 0px -45% 0px'});
+sections.forEach(s=>io.observe(s));
+
+addEventListener('scroll',()=>{
+  const max=document.documentElement.scrollHeight-innerHeight;
+  document.getElementById('progress').style.height=Math.max(20,Math.min(100,(scrollY/max)*100))+'%';
+});
+</script>
+</body>
+</html>
