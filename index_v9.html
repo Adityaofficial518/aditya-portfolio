@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#06070d">
+<meta name="description" content="Aditya — Undergraduate in Computer Applications and AI Automation Enthusiast.">
+<title>Aditya — Builder / AI Automation Enthusiast</title>
+<style>
+:root{
+ --bg:#06070d;--panel:rgba(14,16,28,.62);--text:#f7f8fc;--muted:#a4a9b8;
+ --cyan:#63f5e3;--blue:#62b8ff;--violet:#a77bff;--pink:#ff72bd;--gold:#ffd166;--lime:#b6ff6a;
+ --line:rgba(255,255,255,.105);--max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{
+ min-height:100vh;overflow-x:hidden;color:var(--text);
+ font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ line-height:1.6;
+ background:
+ radial-gradient(700px 500px at 8% 12%,rgba(99,245,227,.10),transparent 65%),
+ radial-gradient(650px 500px at 90% 8%,rgba(167,123,255,.12),transparent 65%),
+ radial-gradient(600px 500px at 82% 75%,rgba(255,114,189,.07),transparent 65%),
+ radial-gradient(550px 450px at 20% 90%,rgba(255,209,102,.045),transparent 65%),#06070d;
+}
+body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+a{color:inherit;text-decoration:none}button{font:inherit}
+::selection{background:rgba(99,245,227,.25)}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:-8;pointer-events:none}
+.fallback{position:fixed;inset:0;z-index:-9;background:
+ radial-gradient(circle at 22% 28%,rgba(99,245,227,.13),transparent 22%),
+ radial-gradient(circle at 78% 22%,rgba(167,123,255,.13),transparent 25%),
+ radial-gradient(circle at 75% 75%,rgba(255,114,189,.08),transparent 24%),#06070d}
+.progress{position:fixed;left:0;top:0;width:0;height:2px;z-index:200;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--violet),var(--pink),var(--gold));box-shadow:0 0 16px rgba(99,245,227,.5)}
+.wrap{width:min(90%,var(--max));margin:auto}
+.nav{
+ position:fixed;z-index:100;top:15px;left:50%;transform:translateX(-50%);width:min(94%,1120px);
+ display:flex;align-items:center;justify-content:space-between;padding:9px 10px 9px 16px;
+ border:1px solid var(--line);border-radius:18px;background:rgba(5,7,13,.66);
+ backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 20px 75px rgba(0,0,0,.4)
+}
+.logo{font-weight:950;letter-spacing:-.055em;font-size:1.08rem;display:flex;gap:8px;align-items:center}
+.logo i{width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 18px var(--cyan)}
+.navlinks{display:flex;gap:3px;list-style:none}.navlinks a{display:block;padding:9px 11px;color:#9da5b3;font-size:.72rem;font-weight:850;border-radius:10px;position:relative}
+.navlinks a:hover,.navlinks a.active{color:#fff;background:rgba(255,255,255,.055)}
+.navlinks a.active:after{content:"";position:absolute;bottom:3px;left:50%;width:4px;height:4px;transform:translateX(-50%);border-radius:50%;background:var(--cyan);box-shadow:0 0 11px var(--cyan)}
+.navcta{padding:9px 13px;border-radius:10px;background:var(--text);color:#070911;font-size:.7rem;font-weight:950}
+.navcta:hover{background:var(--cyan)}
+main{position:relative}
+.hero{min-height:100vh;display:grid;align-items:center;padding:130px 0 80px;position:relative;isolation:isolate}
+.heroGrid{display:grid;grid-template-columns:1.08fr .92fr;gap:20px;align-items:center}
+.eyebrow{display:flex;align-items:center;gap:9px;color:#bfc6d2;font-size:.65rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+.eyebrow:before{content:"";width:30px;height:1px;background:linear-gradient(90deg,var(--cyan),transparent)}
+.wordmark{
+ display:flex;align-items:flex-end;width:max-content;max-width:100%;white-space:nowrap;
+ font-size:clamp(4.8rem,13.5vw,10.8rem);line-height:.82;letter-spacing:0!important;
+ font-weight:950;margin-top:23px;
+ background:linear-gradient(105deg,#fff 0%,#eaf8f7 25%,var(--cyan) 50%,var(--blue) 66%,var(--violet) 83%,var(--pink) 100%);
+ -webkit-background-clip:text;background-clip:text;color:transparent;
+ filter:drop-shadow(0 25px 55px rgba(99,245,227,.09));
+}
+.wordmark span{display:block;flex:0 0 auto}
+.wordmark .gap{width:clamp(.18em,.7vw,.52em);height:1px;display:block}
+.role{margin-top:31px;max-width:850px;font-size:clamp(1.28rem,2.5vw,2rem);line-height:1.2;letter-spacing:-.045em;color:#dce2e8}
+.role strong{color:#fff}
+.copy{margin-top:17px;max-width:690px;color:var(--muted);font-size:1rem;line-height:1.75}
+.pills{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin-top:22px}
+.pills li{padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.035);font-size:.7rem;font-weight:850;color:#bbc2cd}
+.pills li:nth-child(1){color:var(--cyan);border-color:rgba(99,245,227,.25)}
+.pills li:nth-child(2){color:var(--violet);border-color:rgba(167,123,255,.22)}
+.pills li:nth-child(3){color:var(--blue);border-color:rgba(98,184,255,.22)}
+.pills li:nth-child(4){color:var(--gold);border-color:rgba(255,209,102,.2)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.btn{min-height:46px;padding:0 16px;border-radius:11px;display:inline-flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:950;transition:.25s ease}
+.btn:hover{transform:translateY(-3px)}.primary{background:var(--cyan);color:#06100f;box-shadow:0 16px 45px rgba(99,245,227,.15)}.primary:hover{background:#fff}
+.ghost{border:1px solid var(--line);background:rgba(255,255,255,.04)}.ghost:hover{border-color:rgba(167,123,255,.35);background:rgba(167,123,255,.07)}
+.visual{height:520px;position:relative;perspective:1200px;transform-style:preserve-3d}
+.holo{
+ position:absolute;inset:8% 4% 9%;border-radius:50%;border:1px solid rgba(99,245,227,.15);
+ transform:rotateX(68deg) rotateZ(-14deg);box-shadow:0 0 80px rgba(99,245,227,.045),0 0 0 45px rgba(167,123,255,.018);
+ animation:float 8s ease-in-out infinite
+}
+.holo:nth-child(2){inset:14% 10% 14%;border-color:rgba(167,123,255,.17);transform:rotateX(70deg) rotateZ(28deg);animation-delay:-2s}
+.holo:nth-child(3){inset:21% 16% 21%;border-color:rgba(255,114,189,.13);transform:rotateX(73deg) rotateZ(-40deg);animation-delay:-4s}
+@keyframes float{50%{translate:0 -13px;rotate:0 0 1 3deg}}
+.core{
+ position:absolute;left:50%;top:50%;width:210px;height:210px;transform:translate(-50%,-50%) rotateX(58deg) rotateZ(-24deg);
+ border:1px solid rgba(255,255,255,.16);border-radius:28px;
+ background:linear-gradient(145deg,rgba(255,255,255,.12),rgba(99,245,227,.055),rgba(167,123,255,.09));
+ box-shadow:0 35px 90px rgba(0,0,0,.42),inset 0 0 65px rgba(99,245,227,.07);animation:core 8s ease-in-out infinite;
+ transform-style:preserve-3d
+}
+.core:before,.core:after{content:"";position:absolute;inset:17%;border:1px solid rgba(99,245,227,.32);transform:translateZ(40px);box-shadow:0 0 30px rgba(99,245,227,.06)}
+.core:after{inset:30%;border-color:rgba(167,123,255,.4);transform:translateZ(72px)}
+@keyframes core{50%{transform:translate(-50%,-55%) rotateX(66deg) rotateZ(18deg)}}
+.node{position:absolute;width:9px;height:9px;border-radius:50%;box-shadow:0 0 22px currentColor;animation:pulse 2.2s ease-in-out infinite}
+.n1{left:21%;top:26%;color:var(--cyan);background:currentColor}.n2{right:16%;bottom:23%;color:var(--pink);background:currentColor;animation-delay:-.8s}.n3{left:28%;bottom:15%;color:var(--gold);background:currentColor;animation-delay:-1.4s}
+@keyframes pulse{50%{scale:1.7;opacity:.5}}
+.floatCard{
+ position:absolute;width:120px;padding:13px 14px;border:1px solid rgba(255,255,255,.13);border-radius:15px;
+ background:rgba(10,14,24,.68);backdrop-filter:blur(17px);-webkit-backdrop-filter:blur(17px);
+ box-shadow:0 25px 60px rgba(0,0,0,.3);animation:cardFloat 5s ease-in-out infinite
+}
+.floatCard b{display:block;font-size:.9rem;letter-spacing:.05em}.floatCard small{color:#7e8996;font-size:.57rem}.floatCard span{color:var(--cyan);font-size:.55rem;font-weight:900}
+.fc1{left:0;top:15%;transform:rotateZ(-5deg)}.fc2{right:0;top:25%;animation-delay:-1.8s;transform:rotateZ(5deg)}.fc3{left:12%;bottom:6%;animation-delay:-3.2s;transform:rotateZ(3deg)}
+@keyframes cardFloat{50%{translate:0 -13px}}
+section{padding:120px 0}.tag{display:flex;align-items:center;gap:9px;color:var(--cyan);font-size:.64rem;font-weight:950;letter-spacing:.19em;text-transform:uppercase}.tag:before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+h2{margin-top:15px;max-width:850px;font-size:clamp(2.5rem,5.7vw,5rem);line-height:.97;letter-spacing:-.07em}.desc{margin-top:18px;max-width:720px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:1.08fr .92fr;gap:18px;margin-top:45px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}
+.card{position:relative;overflow:hidden;padding:30px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.022));backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);transition:.35s ease;transform-style:preserve-3d}
+.card:after{content:"";position:absolute;width:220px;height:220px;right:-130px;bottom:-130px;border-radius:50%;background:radial-gradient(circle,rgba(99,245,227,.12),transparent 70%)}
+.card:hover{transform:translateY(-8px) rotateX(2deg);border-color:rgba(99,245,227,.23);box-shadow:0 30px 80px rgba(0,0,0,.22)}
+.kicker{color:var(--cyan);font-size:.63rem;font-weight:950;letter-spacing:.15em;text-transform:uppercase;margin-bottom:17px}.card h3{font-size:1.3rem;letter-spacing:-.035em;margin-bottom:10px}.card p{color:var(--muted);font-size:.91rem}
+.list{list-style:none;display:grid;gap:10px;margin-top:18px}.list li{color:#bdc4cf;font-size:.86rem}.list li:before{content:"↗";color:var(--cyan);margin-right:9px}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.skill{padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);font-size:.7rem;font-weight:850;color:#bac1cc}.skill.hot{color:var(--cyan);border-color:rgba(99,245,227,.22)}
+.project{min-height:350px;display:flex;flex-direction:column;justify-content:flex-end;margin-top:45px}.projectNo{position:absolute;right:20px;top:8px;color:rgba(255,255,255,.035);font-size:7rem;font-weight:950}.status{width:max-content;padding:6px 9px;border-radius:999px;border:1px solid rgba(99,245,227,.2);color:var(--cyan);background:rgba(99,245,227,.04);font-size:.6rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}.project h3{font-size:clamp(2rem,4vw,3.2rem);line-height:.95;letter-spacing:-.055em;margin-bottom:14px}
+.timeline{max-width:850px;margin-top:48px;padding-left:28px;position:relative}.timeline:before{content:"";position:absolute;left:3px;top:4px;bottom:0;width:1px;background:linear-gradient(var(--cyan),rgba(99,245,227,0))}.item{position:relative;margin-bottom:46px}.item:before{content:"";position:absolute;left:-28px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 16px var(--cyan)}.item small{color:var(--cyan);font-weight:900;letter-spacing:.13em;text-transform:uppercase;font-size:.62rem}.item h3{margin:6px 0;font-size:1.3rem}.item p{color:var(--muted);font-size:.9rem}
+.contact{margin-top:45px;padding:55px;border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 85% 15%,rgba(167,123,255,.14),transparent 30%),radial-gradient(circle at 10% 90%,rgba(99,245,227,.10),transparent 30%),rgba(255,255,255,.035)}
+.contact p{max-width:650px;color:var(--muted);margin-top:18px}footer{text-align:center;color:#68727f;font-size:.7rem;padding:35px 0 45px;border-top:1px solid rgba(255,255,255,.045)}
+.reveal{opacity:0;transform:translateY(25px);transition:.8s cubic-bezier(.2,.8,.2,1)}.reveal.show{opacity:1;transform:none}
+@media(max-width:900px){.heroGrid{grid-template-columns:1fr}.visual{height:400px}.grid2,.grid3{grid-template-columns:1fr}.navlinks{display:none}}
+@media(max-width:600px){.nav{top:8px}.hero{padding-top:105px}.visual{height:330px}.core{width:165px;height:165px}.floatCard{width:95px;padding:10px 11px}.fc1{left:0}.fc2{right:0}.fc3{left:8%;bottom:0}section{padding:90px 0}.card{padding:24px}.contact{padding:32px 24px}.actions{flex-direction:column}.btn{width:100%}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="fallback"></div><canvas id="scene" aria-hidden="true"></canvas><div class="progress" id="progress"></div>
+
+<nav class="nav" aria-label="Main navigation">
+ <a class="logo" href="#home"><i></i>Aditya.</a>
+ <ul class="navlinks">
+  <li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#work">Work</a></li><li><a href="#journey">Journey</a></li><li><a href="#direction">Direction</a></li>
+ </ul>
+ <a class="navcta" href="#contact">Let's Connect</a>
+</nav>
+
+<main>
+<section class="hero" id="home">
+ <div class="wrap heroGrid">
+  <div>
+   <div class="eyebrow">Learning · Building · Exploring</div>
+   <h1 class="wordmark" aria-label="ADITYA"><span>A</span><span>D</span><span>I</span><span class="gap" aria-hidden="true"></span><span>T</span><span>Y</span><span>A</span></h1>
+   <p class="role"><strong>Undergraduate in Computer Applications</strong> · AI Automation Enthusiast</p>
+   <p class="copy">Exploring AI, automation, software, and practical technology solutions — learning by building and improving through real experiments.</p>
+   <ul class="pills"><li>AI & Automation</li><li>Problem Solving</li><li>Software</li><li>Business Thinking</li></ul>
+   <div class="actions"><a class="btn primary" href="#work">Explore My Work</a><a class="btn ghost" href="#about">Discover More</a></div>
+  </div>
+  <div class="visual" id="visual" aria-hidden="true">
+   <div class="holo"></div><div class="holo"></div><div class="holo"></div>
+   <div class="core"><span class="node n1"></span><span class="node n2"></span><span class="node n3"></span></div>
+   <div class="floatCard fc1"><span>01</span><b>AI</b><small>Automation</small></div>
+   <div class="floatCard fc2"><span>02</span><b>BUILD</b><small>Experiments</small></div>
+   <div class="floatCard fc3"><span>03</span><b>SOLVE</b><small>Real problems</small></div>
+  </div>
+ </div>
+</section>
+
+<section id="about" class="reveal"><div class="wrap"><div class="tag">01 · Identity</div><h2>Learning the systems behind the ideas.</h2><p class="desc">I'm developing a technical foundation while exploring how AI, automation, software, and business thinking can come together to solve useful problems.</p>
+ <div class="grid2"><article class="card"><div class="kicker">What I'm exploring</div><h3>Technology with a purpose.</h3><ul class="list"><li>Artificial intelligence</li><li>Automation workflows</li><li>APIs and integrations</li><li>Software development</li><li>Business-focused technology</li></ul></article>
+ <article class="card"><div class="kicker">How I learn</div><h3>Understand → Build → Improve.</h3><p>I prefer practical experimentation: understand the foundation, build something small, test it, find what is missing, and improve it.</p></article></div>
+</div></section>
+
+<section id="skills" class="reveal"><div class="wrap"><div class="tag">02 · Toolkit</div><h2>A toolkit that keeps evolving.</h2><p class="desc">Some technologies are part of my current toolkit; others are areas I'm actively developing.</p>
+<div class="grid2"><article class="card"><div class="kicker">Current toolkit</div><h3>Foundations</h3><div class="skills"><span class="skill hot">HTML</span><span class="skill hot">CSS</span><span class="skill hot">Python</span><span class="skill hot">Git</span><span class="skill hot">GitHub</span><span class="skill">Excel</span><span class="skill">Word</span></div></article>
+<article class="card"><div class="kicker">Currently learning</div><h3>Next layer</h3><div class="skills"><span class="skill">AI Automation</span><span class="skill">n8n</span><span class="skill">APIs</span><span class="skill">AI Agents</span><span class="skill">JavaScript</span><span class="skill">SQL</span></div></article></div>
+</div></section>
+
+<section id="work" class="reveal"><div class="wrap"><div class="tag">03 · Work</div><h2>From learning to building.</h2><p class="desc">Projects are where concepts become experiments, and experiments become practical experience.</p>
+<article class="card project"><div class="projectNo">01</div><div class="status">Currently building</div><h3>AI Automation Exploration</h3><p>Exploring how AI, automation workflows, APIs, and intelligent systems can work together to reduce repetitive work and create practical solutions for real-world problems.</p><div class="skills"><span class="skill hot">AI</span><span class="skill hot">Automation</span><span class="skill">n8n</span><span class="skill">APIs</span><span class="skill">Agents</span></div></article>
+</div></section>
+
+<section id="journey" class="reveal"><div class="wrap"><div class="tag">04 · Journey</div><h2>The journey is still being written.</h2><p class="desc">I'm early in the journey — which means there's a lot left to learn, build, test, and discover.</p>
+<div class="timeline"><article class="item"><small>2026 · Foundation</small><h3>Building a stronger technical foundation</h3><p>Developing knowledge in computer applications, software, and technology.</p></article><article class="item"><small>2026 · Exploration</small><h3>Exploring AI automation</h3><p>Learning Python, automation, APIs, workflows, and AI-based systems.</p></article><article class="item"><small>Now · Build</small><h3>Turning knowledge into projects</h3><p>Moving from tutorials and theory toward practical experiments and useful systems.</p></article></div>
+</div></section>
+
+<section id="direction" class="reveal"><div class="wrap"><div class="tag">05 · Direction</div><h2>Thinking beyond the next project.</h2><p class="desc">The long-term goal is to combine technical ability with business understanding and create technology that provides real value.</p>
+<div class="grid3"><article class="card"><div class="kicker">01 · AI</div><h3>Intelligent Systems</h3><p>Develop deeper knowledge of AI, agents, automation, and intelligent workflows.</p></article><article class="card"><div class="kicker">02 · Build</div><h3>Products & Software</h3><p>Learn how to turn ideas into useful digital products and practical tools.</p></article><article class="card"><div class="kicker">03 · Business</div><h3>Real-World Value</h3><p>Understand how technology can save time, solve problems, and create measurable value.</p></article></div>
+</div></section>
+
+<section id="contact" class="reveal"><div class="wrap"><div class="contact"><div class="tag">06 · Connection</div><h2>Let's build something useful.</h2><p>I'm open to learning, meaningful conversations, collaboration, and opportunities to build practical technology solutions.</p><div class="actions"><a class="btn primary" href="mailto:YOUR-EMAIL@example.com">Email Me</a><a class="btn ghost" href="https://github.com/Adityaofficial518" target="_blank" rel="noopener">GitHub</a></div></div></div></section>
+</main>
+<footer>© 2026 Aditya · Learning. Building. Growing.</footer>
+
+<script>
+/* Three.js visual background. If CDN fails, the CSS fallback remains. */
+(function(){
+ const s=document.createElement('script');
+ s.src='https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js';
+ s.onload=init;s.onerror=()=>{};
+ document.head.appendChild(s);
+ function init(){
+  if(!window.THREE)return;
+  const canvas=document.getElementById('scene'),scene=new THREE.Scene();
+  const camera=new THREE.PerspectiveCamera(55,innerWidth/innerHeight,.1,100);camera.position.z=7;
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+  renderer.setPixelRatio(Math.min(devicePixelRatio,2));renderer.setSize(innerWidth,innerHeight);
+
+  const count=1100,pos=new Float32Array(count*3),col=new Float32Array(count*3);
+  const palette=[new THREE.Color('#63f5e3'),new THREE.Color('#62b8ff'),new THREE.Color('#a77bff'),new THREE.Color('#ff72bd'),new THREE.Color('#ffd166'),new THREE.Color('#b6ff6a')];
+  for(let i=0;i<count;i++){let j=i*3;pos[j]=(Math.random()-.5)*16;pos[j+1]=(Math.random()-.5)*10;pos[j+2]=(Math.random()-.5)*10;let c=palette[i%palette.length];col[j]=c.r;col[j+1]=c.g;col[j+2]=c.b}
+  const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));g.setAttribute('color',new THREE.BufferAttribute(col,3));
+  const m=new THREE.PointsMaterial({size:.025,vertexColors:true,transparent:true,opacity:.56,depthWrite:false,blending:THREE.AdditiveBlending});
+  const stars=new THREE.Points(g,m);scene.add(stars);
+
+  const group=new THREE.Group();scene.add(group);
+  const torus=new THREE.Mesh(new THREE.TorusKnotGeometry(1.65,.016,160,12,2,3),new THREE.MeshBasicMaterial({color:0x63f5e3,transparent:true,opacity:.13,wireframe:true}));
+  group.add(torus);
+  const torus2=new THREE.Mesh(new THREE.IcosahedronGeometry(2.15,2),new THREE.MeshBasicMaterial({color:0xa77bff,transparent:true,opacity:.035,wireframe:true}));
+  group.add(torus2);
+
+  let mx=0,my=0,tx=0,ty=0;
+  addEventListener('pointermove',e=>{tx=(e.clientX/innerWidth-.5)*.5;ty=(e.clientY/innerHeight-.5)*.35},{passive:true});
+  function frame(t){
+   requestAnimationFrame(frame);mx+=(tx-mx)*.03;my+=(ty-my)*.03;
+   stars.rotation.y=t*.000035+mx*.16;stars.rotation.x=t*.000012+my*.08;
+   group.rotation.y=t*.00016+mx*.22;group.rotation.x=t*.0001+my*.12;
+   renderer.render(scene,camera)
+  }requestAnimationFrame(frame);
+  addEventListener('resize',()=>{camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);renderer.setPixelRatio(Math.min(devicePixelRatio,2))})
+ }
+})();
+
+/* Hero cursor depth */
+(function(){
+ const v=document.getElementById('visual');if(!v||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+ let x=0,y=0,cx=0,cy=0;addEventListener('pointermove',e=>{x=(e.clientX/innerWidth-.5)*18;y=(e.clientY/innerHeight-.5)*-13},{passive:true});
+ function f(){cx+=(x-cx)*.045;cy+=(y-cy)*.045;v.style.transform=`translate3d(${cx}px,${cy}px,0)`;requestAnimationFrame(f)}f()
+})();
+
+/* Scroll reveal + active navigation + progress */
+(function(){
+ const els=document.querySelectorAll('.reveal'),obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show')),{threshold:.12});els.forEach(e=>obs.observe(e));
+ const links=[...document.querySelectorAll('.navlinks a')],secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+ const no=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-35% 0 -55% 0'});secs.forEach(s=>no.observe(s));
+ const bar=document.getElementById('progress');function p(){let max=document.documentElement.scrollHeight-innerHeight;bar.style.width=(max?scrollY/max*100:0)+'%'}addEventListener('scroll',p,{passive:true});p()
+})()
+</script>
+</body>
+</html>
