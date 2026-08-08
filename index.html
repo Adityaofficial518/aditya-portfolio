@@ -4,72 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Aditya — AI Automation Enthusiast & Creative Builder</title>
+
   <meta
     name="description"
-    content="Aditya — Undergraduate in Computer Applications, AI automation enthusiast, creator, and technology learner."
+    content="Aditya is an undergraduate in Computer Applications exploring AI, automation, software, and practical digital experiences."
   >
 
-  <meta name="theme-color" content="#070a0f">
-
-  <title>Aditya — AI Automation Enthusiast</title>
+  <meta name="theme-color" content="#070b10">
+  <meta property="og:title" content="Aditya — AI Automation Enthusiast">
+  <meta
+    property="og:description"
+    content="Learning and exploring AI, automation, and software to turn ideas into practical solutions."
+  >
+  <meta property="og:type" content="website">
 
   <style>
+    /* =====================================================
+       DESIGN TOKENS
+    ===================================================== */
+
     :root {
       color-scheme: dark;
 
-      --bg: #070a0f;
-      --bg-2: #0b1118;
-      --bg-3: #101923;
+      --bg: #070b10;
+      --bg-soft: #0b1219;
+      --bg-card: rgba(255, 255, 255, 0.055);
 
       --text: #f5fafb;
-      --soft: #c4d1d6;
-      --muted: #87959d;
-      --faint: #5d6b73;
+      --text-soft: #c5d2d7;
+      --muted: #87969e;
+      --faint: #617079;
 
-      --teal: #47e6d4;
-      --cyan: #78ddff;
-      --violet: #9b8cff;
+      --teal: #48e6d4;
+      --cyan: #79ddff;
+      --violet: #9a8cff;
       --gold: #ffc477;
-      --pink: #ff8db3;
+      --pink: #ff8eb5;
+      --green: #70e6a5;
 
-      --panel: rgba(255, 255, 255, 0.055);
-      --panel-strong: rgba(255, 255, 255, 0.09);
       --line: rgba(255, 255, 255, 0.12);
-      --line-bright: rgba(71, 230, 212, 0.42);
+      --line-strong: rgba(72, 230, 212, 0.45);
 
-      --shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
       --max-width: 1180px;
       --header-height: 76px;
       --radius: 22px;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.32);
     }
 
     [data-theme="light"] {
       color-scheme: light;
 
-      --bg: #f4f8f8;
-      --bg-2: #eaf2f2;
-      --bg-3: #ffffff;
+      --bg: #f5f9f9;
+      --bg-soft: #eaf2f2;
+      --bg-card: rgba(255, 255, 255, 0.76);
 
-      --text: #102024;
-      --soft: #34484e;
-      --muted: #5d7076;
+      --text: #102126;
+      --text-soft: #354b51;
+      --muted: #5c7077;
       --faint: #819197;
 
       --teal: #008f83;
-      --cyan: #098db5;
-      --violet: #6955d8;
-      --gold: #a66b05;
+      --cyan: #087fa3;
+      --violet: #6b58d7;
+      --gold: #9c6708;
       --pink: #c74775;
+      --green: #168c57;
 
-      --panel: rgba(255, 255, 255, 0.72);
-      --panel-strong: rgba(255, 255, 255, 0.92);
-      --line: rgba(15, 40, 45, 0.13);
-      --line-bright: rgba(0, 143, 131, 0.42);
+      --line: rgba(15, 40, 45, 0.14);
+      --line-strong: rgba(0, 143, 131, 0.45);
 
-      --shadow: 0 25px 70px rgba(28, 65, 72, 0.14);
+      --shadow: 0 28px 80px rgba(38, 76, 82, 0.15);
     }
 
-    /* Reset */
+    /* =====================================================
+       RESET AND GLOBAL
+    ===================================================== */
 
     *,
     *::before,
@@ -133,6 +143,11 @@
       cursor: pointer;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     ::selection {
       color: #04100e;
       background: var(--teal);
@@ -143,7 +158,30 @@
       outline-offset: 4px;
     }
 
-    /* Background */
+    .container {
+      width: min(90%, var(--max-width));
+      margin-inline: auto;
+    }
+
+    main,
+    header,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    section {
+      padding: 120px 0;
+      scroll-margin-top: 94px;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* =====================================================
+       BACKGROUND MOTION
+    ===================================================== */
 
     .ambient {
       position: fixed;
@@ -165,13 +203,13 @@
       -webkit-mask-image: linear-gradient(
         to bottom,
         black,
-        rgba(0, 0, 0, 0.82) 55%,
+        rgba(0, 0, 0, 0.8) 55%,
         transparent 100%
       );
       mask-image: linear-gradient(
         to bottom,
         black,
-        rgba(0, 0, 0, 0.82) 55%,
+        rgba(0, 0, 0, 0.8) 55%,
         transparent 100%
       );
     }
@@ -180,12 +218,12 @@
       content: "";
       position: absolute;
       inset: 0;
-      opacity: 0.17;
+      opacity: 0.16;
       background:
         linear-gradient(
           115deg,
           transparent 0%,
-          color-mix(in srgb, var(--teal) 12%, transparent) 45%,
+          color-mix(in srgb, var(--teal) 11%, transparent) 45%,
           transparent 46%
         );
       background-size: 280px 280px;
@@ -325,11 +363,10 @@
       pointer-events: none;
       background: radial-gradient(
         circle,
-        color-mix(in srgb, var(--teal) 26%, transparent),
+        color-mix(in srgb, var(--teal) 28%, transparent),
         transparent 68%
       );
       transform: translate(-50%, -50%);
-      transition: opacity 0.4s ease;
     }
 
     @keyframes grid-flow {
@@ -404,24 +441,9 @@
       }
     }
 
-    /* Layout */
-
-    .container {
-      width: min(90%, var(--max-width));
-      margin-inline: auto;
-    }
-
-    main,
-    header,
-    footer {
-      position: relative;
-      z-index: 1;
-    }
-
-    section {
-      padding: 120px 0;
-      scroll-margin-top: 92px;
-    }
+    /* =====================================================
+       TYPOGRAPHY AND SECTION HEADERS
+    ===================================================== */
 
     .eyebrow {
       position: relative;
@@ -478,15 +500,29 @@
       font-size: 1.07rem;
     }
 
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(
+        110deg,
+        var(--text),
+        var(--teal) 54%,
+        var(--cyan)
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
     .mono {
       color: var(--teal);
       font-family: "SFMono-Regular", Consolas, monospace;
-      font-size: 0.76rem;
-      letter-spacing: 0.08em;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
     }
 
-    /* Header */
+    /* =====================================================
+       HEADER
+    ===================================================== */
 
     .site-header {
       position: fixed;
@@ -522,14 +558,14 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 27px;
+      gap: 26px;
       list-style: none;
     }
 
     .nav-links a {
       position: relative;
       color: var(--muted);
-      font-size: 0.84rem;
+      font-size: 0.83rem;
       transition: color 0.25s ease;
     }
 
@@ -562,7 +598,7 @@
     .nav-tools {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
     }
 
     .theme-button,
@@ -573,16 +609,16 @@
       place-items: center;
       border: 1px solid var(--line);
       border-radius: 11px;
-      background: var(--panel);
+      background: var(--bg-card);
       transition:
+        transform 0.25s ease,
         border-color 0.25s ease,
-        background 0.25s ease,
-        transform 0.25s ease;
+        background 0.25s ease;
     }
 
     .theme-button:hover,
     .menu-button:hover {
-      border-color: var(--line-bright);
+      border-color: var(--line-strong);
       background: var(--panel-strong);
       transform: translateY(-2px);
     }
@@ -620,7 +656,9 @@
       transform: translateY(-6px) rotate(-45deg);
     }
 
-    /* Hero */
+    /* =====================================================
+       HERO
+    ===================================================== */
 
     .hero {
       min-height: 100vh;
@@ -630,7 +668,7 @@
     }
 
     .hero-content {
-      max-width: 980px;
+      max-width: 1000px;
     }
 
     .availability {
@@ -641,7 +679,7 @@
       padding: 8px 14px;
       border: 1px solid color-mix(in srgb, var(--teal) 28%, transparent);
       border-radius: 999px;
-      color: var(--soft);
+      color: var(--text-soft);
       background: color-mix(in srgb, var(--teal) 6%, transparent);
       font-size: 0.76rem;
     }
@@ -653,18 +691,6 @@
       background: var(--teal);
       box-shadow: 0 0 16px var(--teal);
       animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 0.6;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 1;
-        transform: scale(1.5);
-      }
     }
 
     .hero-name {
@@ -692,24 +718,10 @@
       animation: name-arrival 1.2s ease-out both;
     }
 
-    @keyframes name-arrival {
-      from {
-        opacity: 0;
-        filter: blur(16px);
-        transform: translateY(22px);
-      }
-
-      to {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateY(0);
-      }
-    }
-
     .hero-role {
       max-width: 940px;
       margin-bottom: 22px;
-      color: var(--soft);
+      color: var(--text-soft);
       font-size: clamp(1.38rem, 3vw, 2.2rem);
       line-height: 1.22;
       letter-spacing: -0.04em;
@@ -734,7 +746,7 @@
     }
 
     .hero-points li {
-      color: var(--soft);
+      color: var(--text-soft);
       font-size: 0.91rem;
     }
 
@@ -789,11 +801,11 @@
     .button-secondary {
       border-color: var(--line);
       color: var(--text);
-      background: var(--panel);
+      background: var(--bg-card);
     }
 
     .button-secondary:hover {
-      border-color: var(--line-bright);
+      border-color: var(--line-strong);
       background: color-mix(in srgb, var(--teal) 8%, transparent);
     }
 
@@ -805,7 +817,9 @@
       text-transform: uppercase;
     }
 
-    /* Cards */
+    /* =====================================================
+       CARDS, WORK AND CASE STUDIES
+    ===================================================== */
 
     .card-grid {
       display: grid;
@@ -814,28 +828,35 @@
       margin-top: 52px;
     }
 
-    .glass-card {
+    .glass-card,
+    .work-card,
+    .timeline-card,
+    .contact-card {
       position: relative;
       overflow: hidden;
-      padding: 30px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background:
         linear-gradient(
           140deg,
           color-mix(in srgb, var(--panel-strong) 80%, transparent),
-          color-mix(in srgb, var(--panel) 78%, transparent)
+          color-mix(in srgb, var(--bg-card) 85%, transparent)
         );
       box-shadow: 0 12px 45px rgba(0, 0, 0, 0.08);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
+    }
+
+    .glass-card {
+      padding: 30px;
       transition:
         transform 0.32s ease,
         border-color 0.32s ease,
         box-shadow 0.32s ease;
     }
 
-    .glass-card::before {
+    .glass-card::before,
+    .work-card::before {
       content: "";
       position: absolute;
       top: 0;
@@ -852,7 +873,8 @@
       transition: left 0.7s ease;
     }
 
-    .glass-card::after {
+    .glass-card::after,
+    .work-card::after {
       content: "";
       position: absolute;
       right: -90px;
@@ -868,13 +890,19 @@
       pointer-events: none;
     }
 
-    .glass-card:hover {
-      transform: translateY(-7px);
-      border-color: var(--line-bright);
+    .glass-card:hover,
+    .work-card:hover,
+    .timeline-card:hover {
+      border-color: var(--line-strong);
       box-shadow: var(--shadow);
     }
 
-    .glass-card:hover::before {
+    .glass-card:hover {
+      transform: translateY(-7px);
+    }
+
+    .glass-card:hover::before,
+    .work-card:hover::before {
       left: 120%;
     }
 
@@ -897,104 +925,269 @@
       font-size: 0.96rem;
     }
 
-    /* Education */
-
-    .education-card {
-      max-width: 900px;
-      margin-top: 48px;
-    }
-
-    .education-top {
-      display: flex;
-      justify-content: space-between;
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
-      margin-bottom: 13px;
+      margin-top: 52px;
     }
 
-    .education-label {
-      color: var(--teal);
+    .work-card {
+      transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+    }
+
+    .work-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .work-visual {
+      position: relative;
+      height: 245px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background:
+        radial-gradient(
+          circle at 28% 30%,
+          color-mix(in srgb, var(--teal) 32%, transparent),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          #102d32,
+          #12162d 54%,
+          #241933
+        );
+    }
+
+    .work-card:nth-child(2) .work-visual {
+      background:
+        radial-gradient(
+          circle at 72% 30%,
+          color-mix(in srgb, var(--violet) 35%, transparent),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          #17162d,
+          #102b37 55%,
+          #17131d
+        );
+    }
+
+    .work-visual::before {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border: 1px solid color-mix(in srgb, var(--cyan) 55%, transparent);
+      border-radius: 34% 66% 58% 42%;
+      transform: rotate(-16deg);
+      box-shadow:
+        0 0 45px color-mix(in srgb, var(--teal) 22%, transparent),
+        inset 0 0 35px color-mix(in srgb, var(--cyan) 14%, transparent);
+      animation: visual-float 7s ease-in-out infinite;
+    }
+
+    .work-card:nth-child(2) .work-visual::before {
+      border-radius: 50%;
+      border-color: color-mix(in srgb, var(--pink) 55%, transparent);
+      transform: rotate(22deg);
+      animation-duration: 9s;
+    }
+
+    .visual-label {
+      position: absolute;
+      top: 20px;
+      left: 22px;
+      z-index: 1;
+      color: var(--text-soft);
+      font-family: monospace;
       font-size: 0.7rem;
-      font-weight: 850;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
-    .education-date {
-      color: var(--gold);
-      font-size: 0.8rem;
+    .work-content {
+      padding: 27px;
     }
 
-    .education-title {
-      margin-bottom: 10px;
-      color: var(--text);
-      font-size: 1.45rem;
-    }
-
-    .education-text {
-      color: var(--muted);
-    }
-
-    /* Skills */
-
-    .skills {
+    .work-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 11px;
-      margin-top: 40px;
+      gap: 8px;
+      margin-bottom: 13px;
     }
 
-    .skill {
+    .tag {
+      padding: 5px 9px;
+      border: 1px solid color-mix(in srgb, var(--teal) 24%, transparent);
+      border-radius: 999px;
+      color: var(--teal);
+      background: color-mix(in srgb, var(--teal) 5%, transparent);
+      font-family: monospace;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+    }
+
+    .work-title {
+      margin-bottom: 9px;
+      color: var(--text);
+      font-size: 1.42rem;
+    }
+
+    .work-description {
+      margin-bottom: 20px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .work-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 9px 14px;
-      border: 1px solid color-mix(in srgb, var(--teal) 23%, transparent);
-      border-radius: 999px;
-      color: var(--soft);
-      background: color-mix(in srgb, var(--teal) 5%, transparent);
+      color: var(--teal);
       font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .work-link:hover {
+      color: var(--cyan);
+    }
+
+    .case-study {
+      margin-top: 15px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .case-study summary {
+      cursor: pointer;
+      color: var(--text-soft);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .case-study summary::marker {
+      color: var(--teal);
+    }
+
+    .case-content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .case-item {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: color-mix(in srgb, var(--bg-card) 75%, transparent);
+    }
+
+    .case-item h4 {
+      margin-bottom: 5px;
+      color: var(--teal);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .case-item p {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    @keyframes visual-float {
+      0%, 100% {
+        transform: translateY(0) rotate(-16deg);
+      }
+
+      50% {
+        transform: translateY(-13px) rotate(10deg);
+      }
+    }
+
+    /* =====================================================
+       ABOUT, EXPERTISE AND EXPERIENCE
+    ===================================================== */
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 50px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 46px;
+    }
+
+    .timeline-card {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 24px;
+      padding: 25px;
       transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
+        transform 0.3s ease,
+        border-color 0.3s ease;
     }
 
-    .skill::before {
-      content: "";
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--teal);
-      box-shadow: 0 0 10px var(--teal);
+    .timeline-card:hover {
+      transform: translateX(5px);
     }
 
-    .skill:hover {
-      transform: translateY(-3px);
-      border-color: var(--line-bright);
-      background: color-mix(in srgb, var(--teal) 11%, transparent);
+    .timeline-date {
+      color: var(--gold);
+      font-family: monospace;
+      font-size: 0.76rem;
     }
 
-    /* Experiments */
+    .timeline-role {
+      margin-bottom: 5px;
+      color: var(--text);
+      font-size: 1.08rem;
+      font-weight: 800;
+    }
+
+    .timeline-company {
+      margin-bottom: 8px;
+      color: var(--teal);
+      font-size: 0.85rem;
+    }
+
+    .timeline-text {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* =====================================================
+       EXPERIMENTS
+    ===================================================== */
 
     .experiment-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 48px;
+      margin-top: 50px;
     }
 
     .experiment {
       position: relative;
-      min-height: 215px;
+      min-height: 220px;
       overflow: hidden;
-      padding: 28px;
+      padding: 27px;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background:
         linear-gradient(
           135deg,
-          color-mix(in srgb, var(--violet) 11%, var(--panel)),
-          var(--panel)
+          color-mix(in srgb, var(--violet) 11%, var(--bg-card)),
+          var(--bg-card)
         );
       transition:
         transform 0.35s ease,
@@ -1002,16 +1195,16 @@
     }
 
     .experiment:hover {
-      transform: translateY(-6px);
+      transform: translateY(-7px);
       border-color: color-mix(in srgb, var(--violet) 55%, transparent);
     }
 
     .experiment-shape {
       position: absolute;
-      right: 12%;
-      bottom: -30px;
-      width: 170px;
-      height: 170px;
+      right: 10%;
+      bottom: -35px;
+      width: 165px;
+      height: 165px;
       border: 1px solid color-mix(in srgb, var(--cyan) 45%, transparent);
       border-radius: 35% 65% 60% 40%;
       background: radial-gradient(
@@ -1027,9 +1220,8 @@
     }
 
     .experiment:nth-child(2) .experiment-shape {
-      width: 140px;
-      height: 140px;
-      right: 15%;
+      width: 135px;
+      height: 135px;
       border-radius: 50%;
       border-color: color-mix(in srgb, var(--pink) 45%, transparent);
       background: conic-gradient(
@@ -1041,13 +1233,22 @@
       animation-duration: 9s;
     }
 
+    .experiment:nth-child(3) .experiment-shape {
+      width: 120px;
+      height: 120px;
+      border-radius: 20%;
+      border-color: color-mix(in srgb, var(--gold) 48%, transparent);
+      transform: rotate(45deg);
+      animation-duration: 8s;
+    }
+
     .experiment-label {
       position: relative;
       z-index: 1;
       margin-bottom: 13px;
       color: var(--teal);
       font-family: monospace;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       letter-spacing: 0.13em;
       text-transform: uppercase;
     }
@@ -1058,15 +1259,14 @@
       max-width: 300px;
       margin-bottom: 9px;
       color: var(--text);
-      font-size: 1.35rem;
+      font-size: 1.28rem;
     }
 
     .experiment-text {
       position: relative;
       z-index: 1;
-      max-width: 420px;
       color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.92rem;
     }
 
     @keyframes shape-float {
@@ -1079,7 +1279,54 @@
       }
     }
 
-    /* Contact */
+    /* =====================================================
+       TESTIMONIALS, RESUME AND CONTACT
+    ===================================================== */
+
+    .quote-card {
+      max-width: 900px;
+      margin-top: 48px;
+      padding: 42px;
+      border-left: 3px solid var(--teal);
+    }
+
+    .quote-mark {
+      margin-bottom: 10px;
+      color: var(--teal);
+      font-family: Georgia, serif;
+      font-size: 4rem;
+      line-height: 0.7;
+    }
+
+    .quote-text {
+      margin-bottom: 23px;
+      color: var(--text-soft);
+      font-size: clamp(1.3rem, 3vw, 2rem);
+      line-height: 1.28;
+      letter-spacing: -0.035em;
+    }
+
+    .quote-person {
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    .quote-person strong {
+      color: var(--teal);
+    }
+
+    .resume-panel {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .resume-panel p {
+      max-width: 680px;
+      color: var(--muted);
+    }
 
     .contact-card {
       display: flex;
@@ -1087,6 +1334,7 @@
       justify-content: space-between;
       gap: 30px;
       margin-top: 48px;
+      padding: 31px;
     }
 
     .contact-title {
@@ -1112,27 +1360,95 @@
       color: var(--cyan);
     }
 
-    /* Footer */
-
-    footer {
-      padding: 31px 0;
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 0.82rem;
+    .contact-form {
+      display: grid;
+      gap: 16px;
+      max-width: 850px;
+      margin-top: 48px;
     }
 
-    .footer-content {
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field label {
+      color: var(--text-soft);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .field input,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      outline: none;
+      background: var(--bg-card);
+      color: var(--text);
+      transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .field input {
+      height: 49px;
+      padding: 0 14px;
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+      padding: 13px 14px;
+    }
+
+    .field input:focus,
+    .field textarea:focus {
+      border-color: var(--line-strong);
+      box-shadow: 0 0 0 4px color-mix(in srgb, var(--teal) 10%, transparent);
+    }
+
+    .form-status {
+      min-height: 22px;
+      color: var(--green);
+      font-size: 0.84rem;
+    }
+
+    .social-links {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: 24px;
     }
 
-    .footer-accent {
+    .social-link {
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--text-soft);
+      background: var(--bg-card);
+      font-size: 0.82rem;
+      transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .social-link:hover {
       color: var(--teal);
+      border-color: var(--line-strong);
+      transform: translateY(-3px);
     }
 
-    /* Scroll reveal */
+    /* =====================================================
+       REVEAL, FOOTER AND RESPONSIVE
+    ===================================================== */
 
     .reveal {
       opacity: 0;
@@ -1159,16 +1475,58 @@
       transition-delay: 0.3s;
     }
 
-    /* Responsive */
+    footer {
+      padding: 31px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
 
-    @media (max-width: 850px) {
-      .card-grid,
-      .experiment-grid {
-        grid-template-columns: 1fr;
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-accent {
+      color: var(--teal);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.5);
       }
     }
 
-    @media (max-width: 680px) {
+    @keyframes name-arrival {
+      from {
+        opacity: 0;
+        filter: blur(16px);
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .card-grid,
+      .experiment-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
       :root {
         --header-height: 68px;
       }
@@ -1247,7 +1605,7 @@
       }
 
       .hero-role {
-        font-size: 1.43rem;
+        font-size: 1.38rem;
       }
 
       .hero-copy,
@@ -1259,17 +1617,28 @@
         margin-top: 48px;
       }
 
-      .glass-card,
-      .experiment {
-        padding: 25px;
+      .card-grid,
+      .work-grid,
+      .experiment-grid,
+      .split-grid {
+        grid-template-columns: 1fr;
       }
 
-      .education-top {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 5px;
+      .timeline-card {
+        grid-template-columns: 1fr;
+        gap: 7px;
       }
 
+      .case-content,
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-card {
+        padding: 28px;
+      }
+
+      .resume-panel,
       .contact-card {
         align-items: flex-start;
         flex-direction: column;
@@ -1308,6 +1677,7 @@
 </head>
 
 <body>
+  <!-- Animated visual environment -->
   <div class="ambient" aria-hidden="true">
     <div class="orb orb-one"></div>
     <div class="orb orb-two"></div>
@@ -1325,6 +1695,7 @@
 
   <div class="cursor-light" aria-hidden="true"></div>
 
+  <!-- Navigation -->
   <header class="site-header">
     <nav class="nav container">
       <a class="brand" href="#home" aria-label="Aditya home">
@@ -1356,9 +1727,9 @@
 
       <ul class="nav-links" id="primary-navigation">
         <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#work">Work</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#expertise">Expertise</a></li>
         <li><a href="#experiments">Experiments</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1366,6 +1737,7 @@
   </header>
 
   <main>
+    <!-- Hero / Introduction -->
     <section class="hero" id="home">
       <div class="container">
         <div class="hero-content">
@@ -1396,8 +1768,8 @@
           </ul>
 
           <div class="button-row reveal delay-3">
-            <a class="button button-primary magnetic" href="#about">
-              Explore my journey
+            <a class="button button-primary magnetic" href="#work">
+              Explore selected work
               <span aria-hidden="true">↗</span>
             </a>
 
@@ -1413,9 +1785,142 @@
       </div>
     </section>
 
+    <!-- Selected work -->
+    <section id="work">
+      <div class="container">
+        <div class="eyebrow reveal">Selected work</div>
+
+        <h2 class="section-title reveal delay-1">
+          Ideas becoming
+          <span class="gradient-text">real experiences.</span>
+        </h2>
+
+        <p class="section-description reveal delay-2">
+          These project spaces are ready for your best work. Replace the
+          placeholders with real projects, screenshots, links, and outcomes.
+        </p>
+
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <div class="work-visual">
+              <span class="visual-label">Project 01 / Portfolio</span>
+            </div>
+
+            <div class="work-content">
+              <div class="work-meta">
+                <span class="tag">Design</span>
+                <span class="tag">Development</span>
+              </div>
+
+              <h3 class="work-title">
+                Personal portfolio experience
+              </h3>
+
+              <p class="work-description">
+                A responsive portfolio designed to communicate identity,
+                learning direction, experiments, and future potential.
+              </p>
+
+              <details class="case-study">
+                <summary>View case study structure</summary>
+
+                <div class="case-content">
+                  <div class="case-item">
+                    <h4>Problem</h4>
+                    <p>
+                      Create a clear and memorable online identity.
+                    </p>
+                  </div>
+
+                  <div class="case-item">
+                    <h4>Process</h4>
+                    <p>
+                      Define the visual system, content hierarchy, and motion.
+                    </p>
+                  </div>
+
+                  <div class="case-item">
+                    <h4>Development</h4>
+                    <p>
+                      Build a responsive static website with accessible
+                      interactions.
+                    </p>
+                  </div>
+
+                  <div class="case-item">
+                    <h4>Outcome</h4>
+                    <p>
+                      A fast personal website ready for future projects.
+                    </p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="work-card reveal delay-1">
+            <div class="work-visual">
+              <span class="visual-label">Project 02 / Automation</span>
+            </div>
+
+            <div class="work-content">
+              <div class="work-meta">
+                <span class="tag">AI</span>
+                <span class="tag">Automation</span>
+              </div>
+
+              <h3 class="work-title">
+                AI workflow concept
+              </h3>
+
+              <p class="work-description">
+                A concept for turning repetitive tasks into structured,
+                reusable, and practical AI-assisted workflows.
+              </p>
+
+              <details class="case-study">
+                <summary>View case study structure</summary>
+
+                <div class="case-content">
+                  <div class="case-item">
+                    <h4>Problem</h4>
+                    <p>
+                      Reduce repetitive manual work.
+                    </p>
+                  </div>
+
+                  <div class="case-item">
+                    <h4>Thinking</h4>
+                    <p>
+                      Break the workflow into inputs, decisions, and outputs.
+                    </p>
+                  </div>
+
+                  <div class="case-item">
+                    <h4>Role</h4>
+                    <p>
+                      Research, prompt design, workflow planning, and testing.
+                    </p>
+                  </div>
+
+                  <div class="case-item">
+                    <h4>Result</h4>
+                    <p>
+                      A reusable foundation for future automation projects.
+                    </p>
+                  </div>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
     <section id="about">
       <div class="container">
-        <div class="eyebrow reveal">About me</div>
+        <div class="eyebrow reveal">About</div>
 
         <h2 class="section-title reveal delay-1">
           I learn, I build,
@@ -1429,7 +1934,7 @@
 
         <div class="card-grid">
           <article class="glass-card reveal">
-            <div class="card-number">01 / MINDSET</div>
+            <div class="card-number">01 / APPROACH</div>
             <h3 class="card-title">Think like a builder</h3>
             <p class="card-text">
               I start by understanding the problem and then create solutions
@@ -1438,16 +1943,16 @@
           </article>
 
           <article class="glass-card reveal delay-1">
-            <div class="card-number">02 / DIRECTION</div>
-            <h3 class="card-title">Explore what is next</h3>
+            <div class="card-number">02 / PERSONALITY</div>
+            <h3 class="card-title">Stay curious</h3>
             <p class="card-text">
-              I am exploring AI tools, automation, web development, prompt
-              engineering, freelancing, and modern software.
+              I enjoy learning new tools, testing new ideas, and discovering
+              how technology can improve everyday experiences.
             </p>
           </article>
 
           <article class="glass-card reveal delay-2">
-            <div class="card-number">03 / PRINCIPLE</div>
+            <div class="card-number">03 / DIRECTION</div>
             <h3 class="card-title">Improve every day</h3>
             <p class="card-text">
               Every project gives me an opportunity to learn something new,
@@ -1458,47 +1963,10 @@
       </div>
     </section>
 
-    <section id="education">
+    <!-- Expertise -->
+    <section id="expertise">
       <div class="container">
-        <div class="eyebrow reveal">Education</div>
-
-        <h2 class="section-title reveal delay-1">
-          Building a strong
-          <span class="gradient-text">technical foundation.</span>
-        </h2>
-
-        <p class="section-description reveal delay-2">
-          My academic and independent learning journey is helping me
-          understand computer applications and modern technology.
-        </p>
-
-        <article class="education-card glass-card reveal delay-3">
-          <div class="education-top">
-            <span class="education-label">
-              Undergraduate study
-            </span>
-
-            <span class="education-date">
-              Currently learning
-            </span>
-          </div>
-
-          <h3 class="education-title">
-            Bachelor of Computer Applications
-          </h3>
-
-          <p class="education-text">
-            Building knowledge in programming, databases, computer
-            fundamentals, web technologies, automation, and emerging AI
-            applications.
-          </p>
-        </article>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <div class="eyebrow reveal">Skills and interests</div>
+        <div class="eyebrow reveal">Skills and expertise</div>
 
         <h2 class="section-title reveal delay-1">
           A growing toolkit for
@@ -1518,17 +1986,76 @@
           <span class="skill">AI Tools</span>
           <span class="skill">Prompt Engineering</span>
           <span class="skill">Automation</span>
+          <span class="skill">Creative Coding</span>
           <span class="skill">Freelancing</span>
-          <span class="skill">Creative Thinking</span>
           <span class="skill">Problem Solving</span>
           <span class="skill">Continuous Learning</span>
         </div>
       </div>
     </section>
 
+    <!-- Experience -->
+    <section id="experience">
+      <div class="container">
+        <div class="eyebrow reveal">Experience</div>
+
+        <h2 class="section-title reveal delay-1">
+          The journey is part of
+          <span class="gradient-text">the work.</span>
+        </h2>
+
+        <p class="section-description reveal delay-2">
+          Add real roles, internships, freelance work, clients, dates, and
+          measurable accomplishments here as your experience grows.
+        </p>
+
+        <div class="timeline">
+          <article class="timeline-card reveal">
+            <div class="timeline-date">CURRENT</div>
+
+            <div>
+              <h3 class="timeline-role">
+                Independent learner and builder
+              </h3>
+
+              <div class="timeline-company">
+                Personal development
+              </div>
+
+              <p class="timeline-text">
+                Exploring computer applications, AI automation, web
+                development, prompt engineering, and practical digital work.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-card reveal delay-1">
+            <div class="timeline-date">NEXT</div>
+
+            <div>
+              <h3 class="timeline-role">
+                Future collaborations and projects
+              </h3>
+
+              <div class="timeline-company">
+                Open to opportunities
+              </div>
+
+              <p class="timeline-text">
+                This section can become your professional timeline as you
+                complete projects, internships, freelance work, and
+                collaborations.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experiments / Playground -->
     <section id="experiments">
       <div class="container">
-        <div class="eyebrow reveal">Current experiments</div>
+        <div class="eyebrow reveal">Experiments and playground</div>
 
         <h2 class="section-title reveal delay-1">
           Exploring ideas beyond
@@ -1536,15 +2063,15 @@
         </h2>
 
         <p class="section-description reveal delay-2">
-          A small creative playground for future experiments in AI,
-          generative visuals, interactive interfaces, and automation.
+          A creative space for future work in generative visuals, AI,
+          interactive interfaces, motion, and creative coding.
         </p>
 
         <div class="experiment-grid">
           <article class="experiment reveal">
             <div class="experiment-shape" aria-hidden="true"></div>
 
-            <div class="experiment-label">Experiment 01</div>
+            <div class="mono">Experiment 01</div>
 
             <h3 class="experiment-title">
               Generative visual systems
@@ -1559,7 +2086,7 @@
           <article class="experiment reveal delay-1">
             <div class="experiment-shape" aria-hidden="true"></div>
 
-            <div class="experiment-label">Experiment 02</div>
+            <div class="mono">Experiment 02</div>
 
             <h3 class="experiment-title">
               AI-powered workflows
@@ -1570,13 +2097,89 @@
               turn ideas into useful workflows.
             </p>
           </article>
+
+          <article class="experiment reveal delay-2">
+            <div class="experiment-shape" aria-hidden="true"></div>
+
+            <div class="mono">Experiment 03</div>
+
+            <h3 class="experiment-title">
+              Interactive interfaces
+            </h3>
+
+            <p class="experiment-text">
+              Testing motion, microinteractions, responsive layouts, and
+              thoughtful user experiences.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="eyebrow reveal">Social proof</div>
+
+        <h2 class="section-title reveal delay-1">
+          Words from people who
+          <span class="gradient-text">know the work.</span>
+        </h2>
+
+        <p class="section-description reveal delay-2">
+          Add only genuine feedback from teachers, colleagues, clients, or
+          collaborators. Authentic testimonials are more valuable than
+          invented praise.
+        </p>
+
+        <article class="quote-card glass-card reveal delay-3">
+          <div class="quote-mark" aria-hidden="true">“</div>
+
+          <p class="quote-text">
+            Add a real quote here after completing a project or receiving
+            meaningful feedback.
+          </p>
+
+          <p class="quote-person">
+            <strong>Person Name</strong> · Role or relationship
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume">
+      <div class="container">
+        <div class="eyebrow reveal">Résumé</div>
+
+        <h2 class="section-title reveal delay-1">
+          A clearer view of
+          <span class="gradient-text">my journey.</span>
+        </h2>
+
+        <div class="resume-panel glass-card reveal delay-2">
+          <p>
+            Downloadable résumé functionality is ready. Upload a PDF named
+            <strong>aditya-resume.pdf</strong> to your repository, then the
+            button will work.
+          </p>
+
+          <a
+            class="button button-primary magnetic"
+            href="aditya-resume.pdf"
+            download
+          >
+            Download résumé
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
     <section id="contact">
       <div class="container">
-        <div class="eyebrow reveal">Availability</div>
+        <div class="eyebrow reveal">Contact and availability</div>
 
         <h2 class="section-title reveal delay-1">
           Let’s turn a good idea
@@ -1588,7 +2191,7 @@
           collaborations, and interesting digital project ideas.
         </p>
 
-        <div class="contact-card glass-card reveal delay-3">
+        <div class="contact-card reveal delay-3">
           <div>
             <h3 class="contact-title">
               Currently available for selected collaborations
@@ -1598,6 +2201,21 @@
               Whether it is about technology, AI, learning, or a creative
               project, feel free to reach out.
             </p>
+
+            <div class="social-links">
+              <!-- Replace these placeholder links with your real profiles -->
+              <a class="social-link" href="https://github.com/Adityaofficial518" aria-label="GitHub profile">
+                GitHub
+              </a>
+
+              <a class="social-link" href="https://www.linkedin.com/in/aditya-10917341a/" aria-label="LinkedIn profile">
+                LinkedIn
+              </a>
+
+              <a class="social-link" href="https://www.instagram.com/official__aditya_518/" aria-label="Instagram profile">
+                Instagram
+              </a>
+            </div>
           </div>
 
           <a
@@ -1607,6 +2225,56 @@
             adityaofficial2897@gmail.com
           </a>
         </div>
+
+        <form class="contact-form reveal delay-3" id="contact-form">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Your name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="email">Your email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Tell me about it</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell me about your idea..."
+              required
+            ></textarea>
+          </div>
+
+          <div>
+            <button class="button button-primary magnetic" type="submit">
+              Send message
+              <span aria-hidden="true">↗</span>
+            </button>
+
+            <p
+              class="form-status"
+              id="form-status"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </div>
+        </form>
       </div>
     </section>
   </main>
@@ -1639,6 +2307,8 @@
     const revealItems = document.querySelectorAll(".reveal");
     const cursorLight = document.querySelector(".cursor-light");
     const magneticButtons = document.querySelectorAll(".magnetic");
+    const contactForm = document.querySelector("#contact-form");
+    const formStatus = document.querySelector("#form-status");
     const yearElement = document.querySelector("#year");
 
     if (yearElement) {
@@ -1686,7 +2356,7 @@
       });
     }
 
-    /* Mobile menu */
+    /* Mobile navigation */
 
     if (menuButton && navLinks) {
       menuButton.addEventListener("click", () => {
@@ -1713,7 +2383,7 @@
       });
     }
 
-    /* Cursor light */
+    /* Cursor-reactive light */
 
     if (!reducedMotion && cursorLight) {
       window.addEventListener(
@@ -1800,7 +2470,40 @@
         sectionObserver.observe(section);
       });
     }
+
+    /* Contact form */
+
+    if (contactForm && formStatus) {
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const name = document.querySelector("#name").value.trim();
+        const email = document.querySelector("#email").value.trim();
+        const message = document.querySelector("#message").value.trim();
+
+        if (!name || !email || !message) {
+          formStatus.textContent = "Please complete all fields.";
+          return;
+        }
+
+        const subject = encodeURIComponent(
+          `Portfolio message from ${name}`
+        );
+
+        const body = encodeURIComponent(
+          `Name: ${name}
+Email: ${email}
+
+${message}`
+        );
+
+        window.location.href =
+          `mailto:adityaofficial2897@gmail.com?subject=${subject}&body=${body}`;
+
+        formStatus.textContent =
+          "Opening your email application...";
+      });
+    }
   </script>
 </body>
 </html>
-
