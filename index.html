@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Aditya | AI Automation Enthusiast</title>
 
   <style>
@@ -12,24 +13,42 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: #f4f7f6;
       color: #18252b;
       line-height: 1.6;
     }
 
+    a {
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
     header {
       background: #101a21;
-      padding: 20px 5%;
+      border-bottom: 1px solid #26343d;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     nav {
-      max-width: 1100px;
-      margin: auto;
+      min-height: 70px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
@@ -42,20 +61,34 @@
       color: #25aaa3;
     }
 
-    nav a {
-      color: #c8d0d4;
-      text-decoration: none;
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
     }
+
+    .nav-links a {
+      color: #b9c4c9;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* HERO */
 
     .hero {
       background: #101a21;
       color: white;
-      padding: 120px 5%;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
     }
 
     .hero-content {
       max-width: 900px;
-      margin: auto;
+      padding: 100px 0;
     }
 
     .tag {
@@ -66,19 +99,19 @@
       margin-bottom: 20px;
     }
 
-    h1 {
+    .hero h1 {
       font-size: clamp(48px, 8vw, 90px);
       line-height: 1;
       margin-bottom: 25px;
     }
 
-    h1 span {
+    .hero h1 span {
       color: #5ed2cc;
     }
 
     .subtitle {
       font-size: 22px;
-      color: #dce4e7;
+      color: #d8e0e3;
       margin-bottom: 20px;
     }
 
@@ -96,12 +129,16 @@
     }
 
     .button {
+      display: inline-block;
       padding: 12px 20px;
       background: #1da7a0;
       color: white;
-      text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+    }
+
+    .button:hover {
+      background: #24bdb5;
     }
 
     .button.secondary {
@@ -109,13 +146,14 @@
       border: 1px solid #52636c;
     }
 
-    section {
-      padding: 90px 5%;
+    .button.secondary:hover {
+      border-color: #1da7a0;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 90px 0;
     }
 
     .label {
@@ -128,7 +166,8 @@
     }
 
     h2 {
-      font-size: 42px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.15;
       margin-bottom: 20px;
     }
 
@@ -137,6 +176,8 @@
       color: #637179;
       font-size: 17px;
     }
+
+    /* ABOUT */
 
     .about {
       background: white;
@@ -150,19 +191,241 @@
       max-width: 750px;
     }
 
+    .focus strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    /* EDUCATION */
+
+    .education-card {
+      margin-top: 35px;
+      background: white;
+      padding: 28px;
+      max-width: 750px;
+      border: 1px solid #dce3e2;
+      border-radius: 10px;
+    }
+
+    .education-card h3 {
+      margin-bottom: 8px;
+      font-size: 22px;
+    }
+
+    .education-card p {
+      color: #68757c;
+    }
+
+    .date {
+      color: #147d78 !important;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    /* SKILLS */
+
+    .skills-grid {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 28px;
+      background: #f4f7f6;
+      border: 1px solid #dce3e2;
+      border-radius: 10px;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 15px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .skill {
+      padding: 8px 13px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid #dce3e2;
+      color: #34434a;
+      font-size: 14px;
+    }
+
+    .skill.learning {
+      background: #eaf8f7;
+      border-color: #bfe5e2;
+      color: #147d78;
+    }
+
+    /* PROJECTS */
+
+    .projects {
+      background: #101a21;
+      color: white;
+    }
+
+    .projects .label {
+      color: #61d1cb;
+    }
+
+    .projects .text {
+      color: #aebbc1;
+    }
+
+    .project-card {
+      margin-top: 35px;
+      max-width: 800px;
+      padding: 30px;
+      background: #17242d;
+      border: 1px solid #2b3a44;
+      border-radius: 10px;
+    }
+
+    .project-status {
+      display: inline-block;
+      padding: 5px 10px;
+      background: #203b3d;
+      color: #67d4cf;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+
+    .project-card p {
+      color: #aebbc1;
+    }
+
+    /* JOURNEY */
+
+    .journey {
+      background: white;
+    }
+
+    .timeline {
+      margin-top: 35px;
+      max-width: 750px;
+      border-left: 2px solid #dce3e2;
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      margin-bottom: 35px;
+    }
+
+    .year {
+      color: #147d78;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .timeline-item h3 {
+      margin: 5px 0;
+      font-size: 21px;
+    }
+
+    .timeline-item p {
+      color: #68757c;
+    }
+
+    /* DIRECTION */
+
+    .direction {
+      background: #f4f7f6;
+    }
+
+    .direction-grid {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .direction-card {
+      background: white;
+      padding: 28px;
+      border: 1px solid #dce3e2;
+      border-radius: 10px;
+    }
+
+    .direction-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .direction-card p {
+      color: #68757c;
+      font-size: 15px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      background: #101a21;
+      color: white;
+    }
+
+    .contact .label {
+      color: #61d1cb;
+    }
+
+    .contact .text {
+      color: #aebbc1;
+    }
+
+    /* FOOTER */
+
     footer {
       background: #0b1218;
       color: #819099;
       text-align: center;
       padding: 30px;
+      font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-      .hero {
-        padding: 90px 5%;
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      .nav-links {
+        display: none;
       }
 
-      h1 {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .direction-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 80px 0;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .hero h1 {
         font-size: 50px;
       }
 
@@ -170,8 +433,16 @@
         font-size: 19px;
       }
 
+      .buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        text-align: center;
+      }
+
       h2 {
-        font-size: 34px;
+        font-size: 36px;
       }
     }
   </style>
@@ -179,54 +450,119 @@
 
 <body>
 
+  <!-- NAVIGATION -->
+
   <header>
-    <nav>
-      <div class="logo">Aditya<span>.</span></div>
-      <a href="#about">About</a>
-    </nav>
+    <div class="container">
+
+      <nav>
+
+        <a href="#" class="logo">
+          Aditya<span>.</span>
+        </a>
+
+        <ul class="nav-links">
+
+          <li>
+            <a href="#about">About</a>
+          </li>
+
+          <li>
+            <a href="#education">Education</a>
+          </li>
+
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+
+          <li>
+            <a href="#journey">Journey</a>
+          </li>
+
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
   </header>
+
+
+  <!-- HERO -->
 
   <main>
 
     <section class="hero">
-      <div class="hero-content">
 
-        <div class="tag">
-          AI · AUTOMATION · SOFTWARE
-        </div>
+      <div class="container">
 
-        <h1>
-          Building practical
-          <span>solutions.</span>
-        </h1>
+        <div class="hero-content">
 
-        <p class="subtitle">
-          Undergraduate in Computer Applications
-          · AI Automation Enthusiast
-        </p>
+          <div class="tag">
+            AI · AUTOMATION · SOFTWARE
+          </div>
 
-        <p class="description">
-          I'm exploring artificial intelligence, automation,
-          and software development while learning through
-          hands-on projects and practical problem solving.
-        </p>
+          <h1>
+            Building practical
+            <span>solutions.</span>
+          </h1>
 
-        <div class="buttons">
-          <a class="button" href="#about">Explore</a>
-          <a class="button secondary"
-             href="https://github.com/Adityaofficial518"
-             target="_blank">
-            GitHub
-          </a>
+          <p class="subtitle">
+            Undergraduate in Computer Applications
+            · AI Automation Enthusiast
+          </p>
+
+          <p class="description">
+            I'm exploring artificial intelligence, automation,
+            and software development while learning through
+            hands-on projects and practical problem solving.
+          </p>
+
+          <div class="buttons">
+
+            <a href="#projects" class="button">
+              Explore My Work
+            </a>
+
+            <a
+              href="https://github.com/Adityaofficial518"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="button secondary">
+              GitHub
+            </a>
+
+            <a
+              href="#contact"
+              class="button secondary">
+              Let's Connect
+            </a>
+
+          </div>
+
         </div>
 
       </div>
+
     </section>
 
+
+    <!-- ABOUT -->
+
     <section class="about" id="about">
+
       <div class="container">
 
-        <div class="label">About Me</div>
+        <div class="label">
+          About Me
+        </div>
 
         <h2>
           Learning with a builder's mindset.
@@ -241,17 +577,421 @@
         </p>
 
         <div class="focus">
-          <strong>Current Focus</strong>
+
+          <strong>
+            Current Focus
+          </strong>
+
           <p class="text">
-            AI automation, workflow design, Python,
-            APIs, and practical technology projects.
+            Developing practical skills in AI automation,
+            workflow design, Python, APIs, and intelligent
+            systems while building a strong technical
+            foundation.
           </p>
+
         </div>
 
       </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+
+    <section id="education">
+
+      <div class="container">
+
+        <div class="label">
+          Education
+        </div>
+
+        <h2>
+          Building the foundation.
+        </h2>
+
+        <p class="text">
+          My academic journey is helping me develop
+          fundamentals in computer applications,
+          technology, and problem solving.
+        </p>
+
+        <div class="education-card">
+
+          <h3>
+            Bachelor of Computer Applications (BCA)
+          </h3>
+
+          <p>
+            Galgotias University
+          </p>
+
+          <p class="date">
+            Undergraduate · 2026
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section class="skills" id="skills">
+
+      <div class="container">
+
+        <div class="label">
+          Skills
+        </div>
+
+        <h2>
+          Tools I'm building with.
+        </h2>
+
+        <p class="text">
+          A growing technical toolkit focused on automation,
+          software, and practical problem solving.
+        </p>
+
+        <div class="skills-grid">
+
+          <div class="skill-card">
+
+            <h3>
+              Working With
+            </h3>
+
+            <div class="skill-list">
+
+              <span class="skill">
+                Python
+              </span>
+
+              <span class="skill">
+                Git
+              </span>
+
+              <span class="skill">
+                GitHub
+              </span>
+
+              <span class="skill">
+                n8n
+              </span>
+
+              <span class="skill">
+                Microsoft Excel
+              </span>
+
+              <span class="skill">
+                Microsoft Word
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="skill-card">
+
+            <h3>
+              Currently Learning
+            </h3>
+
+            <div class="skill-list">
+
+              <span class="skill learning">
+                AI Automation
+              </span>
+
+              <span class="skill learning">
+                APIs
+              </span>
+
+              <span class="skill learning">
+                AI Agents
+              </span>
+
+              <span class="skill learning">
+                HTML
+              </span>
+
+              <span class="skill learning">
+                CSS
+              </span>
+
+              <span class="skill learning">
+                JavaScript
+              </span>
+
+              <span class="skill learning">
+                SQL
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section class="projects" id="projects">
+
+      <div class="container">
+
+        <div class="label">
+          Projects
+        </div>
+
+        <h2>
+          Building, experimenting, improving.
+        </h2>
+
+        <p class="text">
+          I'm developing practical projects to strengthen
+          my skills in AI automation, workflows, software
+          development, and business-focused technology.
+        </p>
+
+        <div class="project-card">
+
+          <span class="project-status">
+            Currently Building
+          </span>
+
+          <h3>
+            AI Automation Project
+          </h3>
+
+          <p>
+            Exploring how AI, automation workflows, and APIs
+            can be combined to reduce repetitive work and
+            solve practical business problems.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- JOURNEY -->
+
+    <section class="journey" id="journey">
+
+      <div class="container">
+
+        <div class="label">
+          Journey
+        </div>
+
+        <h2>
+          Learning → Building → Growing.
+        </h2>
+
+        <p class="text">
+          This portfolio will evolve as I learn new
+          technologies, complete projects, and gain
+          practical experience.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+
+            <div class="year">
+              2026
+            </div>
+
+            <h3>
+              Started undergraduate journey
+            </h3>
+
+            <p>
+              Began my Bachelor of Computer Applications
+              and started developing a stronger technical
+              foundation.
+            </p>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="year">
+              2026
+            </div>
+
+            <h3>
+              Started exploring AI automation
+            </h3>
+
+            <p>
+              Began learning AI automation, n8n, Python,
+              APIs, and intelligent workflows.
+            </p>
+
+          </div>
+
+
+          <div class="timeline-item">
+
+            <div class="year">
+              Ongoing
+            </div>
+
+            <h3>
+              Building practical projects
+            </h3>
+
+            <p>
+              Learning through projects, experimentation,
+              documentation, and continuous improvement.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DIRECTION -->
+
+    <section class="direction">
+
+      <div class="container">
+
+        <div class="label">
+          Direction
+        </div>
+
+        <h2>
+          Where I'm heading.
+        </h2>
+
+        <p class="text">
+          My long-term goal is to combine technology,
+          automation, and business thinking to create
+          useful solutions for real-world problems.
+        </p>
+
+        <div class="direction-grid">
+
+          <div class="direction-card">
+
+            <h3>
+              AI & Automation
+            </h3>
+
+            <p>
+              Developing deeper knowledge of AI systems,
+              automation workflows, APIs, and intelligent
+              agents.
+            </p>
+
+          </div>
+
+
+          <div class="direction-card">
+
+            <h3>
+              Software
+            </h3>
+
+            <p>
+              Strengthening my ability to design and build
+              practical software products and tools.
+            </p>
+
+          </div>
+
+
+          <div class="direction-card">
+
+            <h3>
+              Business Solutions
+            </h3>
+
+            <p>
+              Exploring how technology can solve business
+              problems, improve efficiency, and create
+              measurable value.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+
+      <div class="container">
+
+        <div class="label">
+          Contact
+        </div>
+
+        <h2>
+          Let's build something useful.
+        </h2>
+
+        <p class="text">
+          I'm interested in learning, building, and
+          connecting with people working on technology,
+          automation, and meaningful ideas.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            href="mailto:adityaofficial2897@gmail.com"
+            class="button">
+            Email Me
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/aditya-10917341"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button secondary">
+            LinkedIn
+          </a>
+
+          <a
+            href="https://github.com/Adityaofficial518"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button secondary">
+            GitHub
+          </a>
+
+        </div>
+
+      </div>
+
     </section>
 
   </main>
+
 
   <footer>
     © 2026 Aditya · Learning, building, and growing.
