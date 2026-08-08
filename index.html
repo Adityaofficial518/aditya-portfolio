@@ -948,4 +948,653 @@
 
     .skill::before {
       content: "◆";
-      co
+      color: var(--teal);
+      font-size: 0.5rem;
+    }
+
+    .skill:hover {
+      transform: translateY(-3px);
+      border-color: rgba(67, 230, 212, 0.5);
+      background: rgba(67, 230, 212, 0.1);
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 45px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.45rem;
+    }
+
+    .contact-card p {
+      max-width: 620px;
+      color: var(--muted);
+    }
+
+    .contact-email {
+      color: var(--teal);
+      font-size: 0.9rem;
+      font-weight: 800;
+      word-break: break-word;
+      transition: color 0.25s ease;
+    }
+
+    .contact-email:hover {
+      color: var(--cyan);
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 {
+      transition-delay: 0.08s;
+    }
+
+    .delay-2 {
+      transition-delay: 0.16s;
+    }
+
+    .delay-3 {
+      transition-delay: 0.24s;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-accent {
+      color: var(--teal);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
+
+      .terminal {
+        max-width: 650px;
+        transform: none;
+      }
+
+      .terminal:hover {
+        transform: translateY(-6px);
+      }
+
+      .glass-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      :root {
+        --header-height: 66px;
+      }
+
+      .container {
+        width: min(92%, var(--max-width));
+      }
+
+      section {
+        padding: 85px 0;
+      }
+
+      .nav {
+        min-height: var(--header-height);
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: calc(var(--header-height) + 10px);
+        right: 4%;
+        left: 4%;
+        display: grid;
+        gap: 0;
+        padding: 10px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(7, 10, 15, 0.95);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease;
+      }
+
+      .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .nav-links li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav-links li:last-child {
+        border-bottom: 0;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 14px 12px;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 115px;
+      }
+
+      .hero-title {
+        font-size: clamp(4.4rem, 21vw, 7rem);
+      }
+
+      .hero-role {
+        font-size: 1.45rem;
+      }
+
+      .hero-copy,
+      .section-description {
+        font-size: 1rem;
+      }
+
+      .hero-note {
+        margin-top: 48px;
+      }
+
+      .glass-card {
+        padding: 25px;
+      }
+
+      .terminal-body {
+        min-height: 260px;
+        padding: 23px 18px;
+        font-size: 0.7rem;
+      }
+
+      .contact-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .spotlight {
+        display: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background" aria-hidden="true">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+
+    <div class="particles">
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+      <span class="particle"></span>
+    </div>
+  </div>
+
+  <div class="spotlight" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="#home" aria-label="Aditya home">
+        Aditya<span class="brand-mark">.</span>
+      </a>
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="primary-navigation">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-layout">
+          <div class="hero-content">
+            <div class="availability reveal">
+              <span class="availability-dot"></span>
+              Available for learning and collaboration
+            </div>
+
+            <h1 class="hero-title reveal delay-1">
+              <span class="gradient-text">Aditya</span>
+            </h1>
+
+            <p class="hero-role reveal delay-2">
+              Computer Applications Student and
+              <strong>AI Automation Enthusiast.</strong>
+            </p>
+
+            <p class="hero-copy reveal delay-3">
+              I learn by building practical digital solutions. My interests
+              include web development, automation, prompt engineering,
+              freelancing, and emerging technology.
+            </p>
+
+            <ul class="hero-points reveal delay-3">
+              <li>Build with purpose</li>
+              <li>Learn continuously</li>
+              <li>Think practically</li>
+            </ul>
+
+            <div class="button-row reveal delay-3">
+              <a class="button button-primary" href="#about">
+                Explore my profile
+                <span aria-hidden="true">↗</span>
+              </a>
+
+              <a class="button button-secondary" href="#contact">
+                Start a conversation
+              </a>
+            </div>
+
+            <p class="hero-note reveal delay-3">
+              Learning today • Building for tomorrow
+            </p>
+          </div>
+
+          <div class="terminal reveal delay-2" aria-label="Developer terminal">
+            <div class="terminal-bar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+              <span class="terminal-title">aditya@portfolio:~</span>
+            </div>
+
+            <div class="terminal-body">
+              <span class="code-line">
+                <span class="code-prompt">aditya@portfolio</span>:~$ whoami
+              </span>
+
+              <span class="code-line">
+                <span class="code-string">"AI automation enthusiast"</span>
+              </span>
+
+              <span class="code-line">&nbsp;</span>
+
+              <span class="code-line">
+                <span class="code-prompt">aditya@portfolio</span>:~$ cat focus.txt
+              </span>
+
+              <span class="code-line">
+                <span class="code-key">focus</span> =
+                <span class="code-string">"learn, build, improve"</span>
+              </span>
+
+              <span class="code-line">
+                <span class="code-key">status</span> =
+                <span class="code-string">"always curious"</span>
+              </span>
+
+              <span class="code-line">&nbsp;</span>
+
+              <span class="code-line">
+                <span class="code-prompt">aditya@portfolio</span>:~$
+                <span class="cursor"></span>
+              </span>
+
+              <br>
+
+              <span class="code-line code-comment">
+                // turning ideas into useful experiences
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="eyebrow reveal">About me</div>
+
+        <h2 class="section-title reveal delay-1">
+          Learning through
+          <span class="gradient-text">real projects.</span>
+        </h2>
+
+        <p class="section-description reveal delay-2">
+          I am developing my technical and creative skills by studying
+          computer applications and experimenting with modern tools that can
+          solve real problems.
+        </p>
+
+        <div class="glass-grid">
+          <article class="glass-card reveal">
+            <div class="card-icon" aria-hidden="true">⌘</div>
+            <h3>My approach</h3>
+            <p>
+              I prefer practical learning. I understand a concept better when
+              I use it to build something visible, useful, and easy to improve.
+            </p>
+          </article>
+
+          <article class="glass-card reveal delay-1">
+            <div class="card-icon" aria-hidden="true">⚡</div>
+            <h3>My direction</h3>
+            <p>
+              I am exploring the combination of web development, AI tools,
+              automation, prompt engineering, and independent digital work.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="eyebrow reveal">Education</div>
+
+        <h2 class="section-title reveal delay-1">
+          Building a strong
+          <span class="gradient-text">foundation.</span>
+        </h2>
+
+        <p class="section-description reveal delay-2">
+          My education is helping me understand programming, databases,
+          computer fundamentals, web technologies, and modern applications of
+          artificial intelligence.
+        </p>
+
+        <article class="education-card glass-card reveal delay-3">
+          <div class="education-top">
+            <span class="education-label">Undergraduate study</span>
+            <span class="education-date">Currently learning</span>
+          </div>
+
+          <h3>Bachelor of Computer Applications</h3>
+
+          <p>
+            Developing a foundation in computer applications while building
+            practical skills through self-learning, projects, and technology
+            exploration.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="eyebrow reveal">Skills and interests</div>
+
+        <h2 class="section-title reveal delay-1">
+          Curious about what is
+          <span class="gradient-text">possible.</span>
+        </h2>
+
+        <p class="section-description reveal delay-2">
+          These are the areas I am currently learning, practising, and
+          exploring.
+        </p>
+
+        <div class="skills reveal delay-3">
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">Responsive Design</span>
+          <span class="skill">JavaScript Basics</span>
+          <span class="skill">AI Tools</span>
+          <span class="skill">Prompt Engineering</span>
+          <span class="skill">Automation</span>
+          <span class="skill">Freelancing</span>
+          <span class="skill">Problem Solving</span>
+          <span class="skill">Continuous Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="eyebrow reveal">Contact</div>
+
+        <h2 class="section-title reveal delay-1">
+          Let’s create something
+          <span class="gradient-text">useful.</span>
+        </h2>
+
+        <p class="section-description reveal delay-2">
+          I am open to learning opportunities, useful conversations,
+          collaborations, and interesting digital project ideas.
+        </p>
+
+        <div class="contact-card glass-card reveal delay-3">
+          <div>
+            <h3>Start a conversation</h3>
+            <p>
+              Replace the email address on the right with your real email
+              address before publishing.
+            </p>
+          </div>
+
+          <!-- Replace both email values with your real email address -->
+          <a
+            class="contact-email"
+            href="mailto:adityaofficial2897@gmail.com"
+          >
+            adityaofficial2897@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>
+        © <span id="year">2026</span> Aditya.
+      </span>
+
+      <span>
+        Designed with <span class="footer-accent">curiosity</span>.
+      </span>
+    </div>
+  </footer>
+
+  <script>
+    "use strict";
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const menuButton = document.querySelector(".menu-button");
+    const navLinks = document.querySelector(".nav-links");
+    const navItems = document.querySelectorAll(".nav-links a");
+    const spotlight = document.querySelector(".spotlight");
+    const revealItems = document.querySelectorAll(".reveal");
+    const yearElement = document.querySelector("#year");
+
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+
+    if (menuButton && navLinks) {
+      menuButton.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+
+        menuButton.classList.toggle("open", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+          "aria-label",
+          isOpen ? "Close navigation menu" : "Open navigation menu"
+        );
+        document.body.classList.toggle("menu-open", isOpen);
+      });
+
+      navItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuButton.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation menu");
+          document.body.classList.remove("menu-open");
+        });
+      });
+    }
+
+    if (!reduceMotion && spotlight) {
+      window.addEventListener(
+        "pointermove",
+        (event) => {
+          spotlight.style.left = `${event.clientX}px`;
+          spotlight.style.top = `${event.clientY}px`;
+        },
+        { passive: true }
+      );
+    }
+
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      const revealObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: "0px 0px -45px 0px"
+        }
+      );
+
+      revealItems.forEach((item) => {
+        revealObserver.observe(item);
+      });
+    } else {
+      revealItems.forEach((item) => {
+        item.classList.add("visible");
+      });
+    }
+
+    const sections = document.querySelectorAll("main section[id]");
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navItems.forEach((link) => {
+                link.classList.toggle(
+                  "active",
+                  link.getAttribute("href") === `#${entry.target.id}`
+                );
+              });
+            }
+          });
+        },
+        {
+          rootMargin: "-35% 0px -55% 0px",
+          threshold: 0
+        }
+      );
+
+      sections.forEach((section) => {
+        sectionObserver.observe(section);
+      });
+    }
+  </script>
+</body>
+</html>
+
