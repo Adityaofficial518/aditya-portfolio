@@ -4,34 +4,295 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya — AI Automation Enthusiast</title>
+  <meta name="description" content="Aditya — Undergraduate in Computer Applications and AI Automation Enthusiast.">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1>Aditya</h1>
-    <p>Undergraduate in Computer Applications | AI Automation Enthusiast</p>
+  <div class="webgl-stage" aria-hidden="true">
+    <canvas id="webgl-canvas"></canvas>
+    <div class="grid"></div>
+    <div class="scene-fade"></div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="#home">
+        Aditya<span>.</span>
+      </a>
+
+      <div class="nav-actions">
+        <button
+          class="icon-button"
+          id="theme-toggle"
+          type="button"
+          aria-label="Switch theme"
+        >
+          <span id="theme-symbol">☼</span>
+        </button>
+      </div>
+
+      <ul class="nav-list" id="nav-list">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#playground">Playground</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        Learning and exploring AI, automation, and software to turn ideas into practical solutions.
-      </p>
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="status">
+            <span class="status-dot"></span>
+            Independent learner / builder / explorer
+          </div>
+
+          <h1 class="hero-name">Aditya</h1>
+
+          <p class="hero-role">
+            Undergraduate in Computer Applications
+            <span aria-hidden="true"> | </span>
+            <strong>AI Automation Enthusiast</strong>
+          </p>
+
+          <p class="hero-description">
+            Learning and exploring AI, automation, and software to turn ideas
+            into practical solutions.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#about">
+              Discover the direction
+            </a>
+
+            <a class="button button-secondary" href="#work">
+              Explore the work
+            </a>
+          </div>
+
+          <p class="scroll-note">
+            Scroll to activate the environment
+          </p>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <a href="mailto:adityaofficial2897@gmail.com">
-        adityaofficial2897@gmail.com
-      </a>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">About / 01</div>
+
+          <h2 class="section-title">
+            I turn curiosity into
+            <span class="gradient">useful direction.</span>
+          </h2>
+
+          <p class="section-description">
+            I am developing a practical understanding of technology through
+            continuous learning, experimentation, and project-based work.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel about-card">
+            <h3>Think like a builder</h3>
+
+            <p>
+              I understand the problem first, explore the right tools, and
+              then build solutions that are practical, clear, and useful.
+            </p>
+
+            <ul class="about-facts">
+              <li>Learning through projects and experimentation.</li>
+              <li>Exploring AI tools and practical automation.</li>
+              <li>Building a technical and creative foundation.</li>
+              <li>Interested in meaningful collaborations.</li>
+            </ul>
+          </article>
+
+          <article class="panel about-card">
+            <h3>Independent direction</h3>
+
+            <p>
+              I am interested in the space between software, AI, automation,
+              design, and human ideas. This portfolio is designed to evolve
+              with that exploration.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Selected work / 02</div>
+
+          <h2 class="section-title">
+            Ideas becoming
+            <span class="gradient">digital experiences.</span>
+          </h2>
+
+          <p class="section-description">
+            Replace the sample projects below with your real projects,
+            screenshots, videos, and measurable results.
+          </p>
+        </div>
+
+        <div class="work-grid">
+          <article class="panel work-card">
+            <div class="work-visual">
+              <span class="work-index">Project 01 / Identity</span>
+            </div>
+
+            <div class="work-content">
+              <div class="tags">
+                <span class="tag">Creative code</span>
+                <span class="tag">Motion</span>
+                <span class="tag">WebGL</span>
+              </div>
+
+              <h3>Personal digital environment</h3>
+
+              <p>
+                A personal identity system combining typography, motion,
+                real-time visuals, and a professional story.
+              </p>
+            </div>
+          </article>
+
+          <article class="panel work-card">
+            <div class="work-visual">
+              <span class="work-index">Project 02 / AI</span>
+            </div>
+
+            <div class="work-content">
+              <div class="tags">
+                <span class="tag">AI</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Systems</span>
+              </div>
+
+              <h3>AI workflow laboratory</h3>
+
+              <p>
+                A collection of experiments focused on prompts,
+                automation, research, and practical digital workflows.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="playground">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Playground / 03</div>
+
+          <h2 class="section-title">
+            Exploring beyond
+            <span class="gradient">the expected.</span>
+          </h2>
+
+          <p class="section-description">
+            A space for WebGL experiments, generative artwork, interactive
+            typography, creative coding, and AI exploration.
+          </p>
+        </div>
+
+        <div class="playground-grid">
+          <article class="panel playground-card">
+            <div class="playground-shape"></div>
+
+            <div class="playground-label">01 / Generative</div>
+
+            <h3>Generative visual systems</h3>
+
+            <p>
+              Exploring how code, light, geometry, and colour can create
+              responsive digital artwork.
+            </p>
+          </article>
+
+          <article class="panel playground-card">
+            <div class="playground-shape"></div>
+
+            <div class="playground-label">02 / Interactive</div>
+
+            <h3>Interactive interfaces</h3>
+
+            <p>
+              Exploring scroll storytelling, motion, microinteractions,
+              typography, and responsive environments.
+            </p>
+          </article>
+
+          <article class="panel playground-card">
+            <div class="playground-shape"></div>
+
+            <div class="playground-label">03 / Automation</div>
+
+            <h3>AI-powered workflows</h3>
+
+            <p>
+              Learning how AI tools can support research, organisation,
+              creation, and practical digital work.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <div class="eyebrow">Contact / 04</div>
+
+          <h2 class="section-title">
+            Let’s make something
+            <span class="gradient">useful and memorable.</span>
+          </h2>
+
+          <p class="section-description">
+            I am open to meaningful conversations, learning opportunities,
+            collaborations, and interesting digital project ideas.
+          </p>
+        </div>
+
+        <div class="panel contact-panel">
+          <p>
+            Whether your idea is about technology, AI, automation, learning,
+            or a creative project, feel free to reach out.
+          </p>
+
+          <a
+            class="email"
+            href="mailto:adityaofficial2897@gmail.com"
+          >
+            adityaofficial2897@gmail.com
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Aditya</p>
+    <div class="container footer-inner">
+      <span>
+        © <span id="year"></span> Aditya.
+      </span>
+
+      <span>
+        Designed and developed with
+        <span class="footer-accent">curiosity</span>.
+      </span>
+    </div>
   </footer>
 
   <script type="importmap">
